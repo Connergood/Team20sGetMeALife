@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GetMeALife.Views.EventDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid 
+                                            BackgroundColor="{StaticResource White}" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="62*" />
+                    <ColumnDefinition>
+                        <ColumnDefinition.Width>
+                            <OnIdiom x:TypeArguments="GridLength" Phone="45*" Tablet="28*" />
+                        </ColumnDefinition.Width>
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition>
+                        <RowDefinition.Height>
+                            <OnIdiom x:TypeArguments="GridLength" Phone="31" Tablet="47"/>
+                        </RowDefinition.Height>
+                    </RowDefinition>
+                    <RowDefinition>
+                        <RowDefinition.Height>
+                            <OnIdiom x:TypeArguments="GridLength" Phone="20" Tablet="30"/>
+                        </RowDefinition.Height>
+                    </RowDefinition>
+                    <RowDefinition>
+                        <RowDefinition.Height>
+                            <OnIdiom x:TypeArguments="GridLength" Phone="30" Tablet="45"/>
+                        </RowDefinition.Height>
+                    </RowDefinition>
+                    <RowDefinition>
+                        <RowDefinition.Height>
+                            <OnIdiom x:TypeArguments="GridLength" Phone="27" Tablet="41"/>
+                        </RowDefinition.Height>
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+                <BoxView
+                                                Color="{Binding BarColor}"
+                                                Grid.Column="0"
+                                                Grid.Row="0"
+                                                Grid.RowSpan="4"
+                                                Margin="0"/>
+                <BoxView
+                                                Color="{Binding ChangeBarColor}"
+                                                Grid.Column="1"
+                                                Grid.Row="0"
+                                                Grid.RowSpan="4"/>
+                <Label x:Name="lblName" Font="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" HorizontalOptions="CenterAndExpand"></Label>
+                <Label x:Name="lblType" Font="Large" HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"></Label>
+                <Label x:Name="lblPrice" Font="Large" HorizontalTextAlignment="End" HorizontalOptions="End"></Label>
+                <Label x:Name="lblLocation" Font="Medium" HorizontalTextAlignment="Start" HorizontalOptions="Start"></Label>
+                <Label x:Name="lblTime" Font="Medium" HorizontalTextAlignment="End" HorizontalOptions="End"></Label>
+                <Label x:Name="lblDescription" Font="Medium" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"></Label>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

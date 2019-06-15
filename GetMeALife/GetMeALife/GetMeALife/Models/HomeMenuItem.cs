@@ -6,8 +6,13 @@ namespace GetMeALife.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About
+        NewLife,
+        Host,
+        LifeChoices,
+        SearchRadius,
+        CostLimit,
+        Notify,
+        LogOut
     }
     public class HomeMenuItem
     {
