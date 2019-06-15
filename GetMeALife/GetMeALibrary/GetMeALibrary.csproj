@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DatabaseObject.cs" />
+    <Compile Include="Interface\IDatabaseObject.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\EventType.cs" />
     <Compile Include="Interface\IEvent.cs" />
@@ -53,6 +53,12 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserSetting.cs" />
     <Compile Include="Model\UserType.cs" />
+    <Compile Include="Sql\Database.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MySql.Data">
+      <Version>8.0.16</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
