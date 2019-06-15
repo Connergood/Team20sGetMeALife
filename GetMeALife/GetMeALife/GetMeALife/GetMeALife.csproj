@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Update="Controls\NavigationMenuItem.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -42,5 +43,8 @@
     <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+=======
+    <ProjectReference Include="..\..\GetMeALibrary\GetMeALibrary.csproj" />
+>>>>>>> be430e2b7234bde8af44bde7539fe5cd27b81ce4
   </ItemGroup>
 </Project>

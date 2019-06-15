@@ -1,7 +1,10 @@
-﻿namespace GetMeALibrary.Model
+﻿using MySql.Data.MySqlClient;
+
+namespace GetMeALibrary.Model
 {
-    public class DatabaseObject
+    public abstract class DatabaseObject
     {
-        int ID { get; set; }
+        public int ID { get; set; }
+        public abstract void Parse(MySqlDataReader reader);
     }
 }

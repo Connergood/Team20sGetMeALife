@@ -1,6 +1,6 @@
 ﻿namespace GetMeALibrary.Interface
 {
-    public interface IEventType
+    public interface IEventType : IDatabaseObject
     {
         string Name { get; set; }
     }
