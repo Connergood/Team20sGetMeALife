@@ -1,6 +1,6 @@
 ﻿namespace GetMeALibrary.Interface
 {
-    public interface IUserType : IDatabaseObject
+    public interface IUserType
     {
         int EventTypeID { get; set; }
         int Occurences { get; set; }

@@ -24,5 +24,10 @@ namespace GetMeALibrary.Model
             Phone = reader["PHONE"].ToString();
             Username = reader["USERNAME"].ToString();
         }
+
+        public override string ToString()
+        {
+            return $"Name:{FirstName} {LastName}, Phone:{Phone}, Username({Username})";
+        }
     }
 }

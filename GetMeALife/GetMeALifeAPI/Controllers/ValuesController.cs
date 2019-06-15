@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using GetMeALibrary.Model;
+using GetMeALibrary.Sql;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GetMeAnApi.Controllers
+namespace GetMeALifeAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -11,7 +16,14 @@ namespace GetMeAnApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            Database context = GetConnectionToDB();
+            var users = context.Query<User>("SELECT * FROM USER");
+            string[] values = new string[users.Count];
+            for (int i = 0; i < users.Count; i++)
+                values[i] = users[i].ToString();
+
+            return values;
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
@@ -37,6 +49,11 @@ namespace GetMeAnApi.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+
+        private Database GetConnectionToDB()
+        {
+            return new Database("server=35.238.128.54;port=3306;database=team20_db;user=team20_user;password=donuts are tasty;");
         }
     }
 }

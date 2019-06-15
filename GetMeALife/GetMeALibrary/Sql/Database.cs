@@ -24,7 +24,7 @@ namespace GetMeALibrary.Sql
             using (MySqlConnection context = GetConnection())
             {
                 context.Open();
-                MySqlCommand cmd = new MySqlCommand(queryString);
+                MySqlCommand cmd = new MySqlCommand(queryString, context);
 
                 using (var reader = cmd.ExecuteReader())
                 {
