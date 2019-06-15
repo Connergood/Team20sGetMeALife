@@ -17,6 +17,17 @@ namespace GetMeALife.Views
 			InitializeComponent ();
 		}
 
+        public static void LoadEvents(List<string> types, bool noRestriction = false)
+        {
+            // Find Me - No restriction, pull everything
+            if (noRestriction)
+            { return; }
+
+            // Grab all events of types
+
+            // Filter events by location
+        }
+
         public static void OnEventClicked()
         {
 

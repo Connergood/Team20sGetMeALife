@@ -16,5 +16,12 @@ namespace GetMeALife.Views
 		{
 			InitializeComponent ();
 		}
+
+        public static void OnConfirmClick()
+        {
+            // Ping the DB to increment this type
+
+            // Flag this event as confirmed
+        }
 	}
 }

@@ -8,7 +8,7 @@
             <Button x:Name="btnNewLife"
                     Clicked="OnNewLifeClicked"
                     Grid.Row="0"
-                    Text=""
+                    Text="New Life"
                     Style="{StaticResource PageTitle}"
                     Font="{StaticResource Montserrat-Medium}"
                     FontSize="17"

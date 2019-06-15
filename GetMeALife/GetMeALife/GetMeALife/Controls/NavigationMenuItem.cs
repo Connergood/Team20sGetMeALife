@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace GetMeALife.Controls
 {
-
     public class NavigationMenuItem
     {
         public NavigationMenuItem()

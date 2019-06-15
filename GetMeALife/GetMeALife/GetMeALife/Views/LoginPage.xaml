@@ -10,8 +10,6 @@
 				HorizontalOptions="Center" 
 				HorizontalTextAlignment="Center" 
 				Placeholder="Username" 
-				IsPassword="true" 
-				Style="{StaticResource DriverLogin-Entry}"
 				FontSize="{StaticResource Font-Normal}"
                 MaxLength="20">
                 <Entry.FontFamily>
@@ -27,7 +25,6 @@
 				HorizontalTextAlignment="Center" 
 				Placeholder="Password" 
 				IsPassword="true" 
-				Style="{StaticResource DriverLogin-Entry}"
 				FontSize="{StaticResource Font-Normal}"
                 MaxLength="20">
                 <Entry.FontFamily>
@@ -37,16 +34,14 @@
                 </Entry.FontFamily>
             </Entry>
             <Button 
-					x:Name="btnLogin" 
-					Text="Get Me A Life" 
-					HorizontalOptions="End" 
-					VerticalOptions="End" 
-					Clicked="NavigateToDriverList" 
-					Font="{StaticResource Montserrat-SemiBold}" 
-					FontSize="{StaticResource Font-Large}" 
-					Style="{StaticResource DriverLogin-Cancel}"  
-					Grid.Row="0" 
-					Grid.Column="0" />
+				x:Name="btnLogin" 
+				Text="Get Me A Life" 
+				HorizontalOptions="End" 
+				VerticalOptions="End" 
+				Clicked="OnLoginClicked" 
+				Font="{StaticResource Montserrat-SemiBold}" 
+				FontSize="{StaticResource Font-Large}">
+            </Button>  
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
