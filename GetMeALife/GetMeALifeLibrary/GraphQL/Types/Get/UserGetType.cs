@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GetMeALifeLibrary.GraphQL.Types
+namespace GetMeALifeLibrary.GraphQL.Types.Get
 {
-    public class UserType : ObjectGraphType<User>
+    public class UserGetType : ObjectGraphType<User>
     {
-        public UserType(Database dbo)
+        public UserGetType(Database dbo)
         {
             Field(x => x.ID, type: typeof(IdGraphType)).Description("ID of the user");
             Field(x => x.FirstName).Description("First name of the user");
@@ -18,11 +18,11 @@ namespace GetMeALifeLibrary.GraphQL.Types
             Field(x => x.Password).Description("Password of the user");
             Field(x => x.Phone).Description("Phone of the user");
             Field(x => x.Username).Description("Username of the user");
-            Field<ListGraphType<UserSettingType>>(
+            Field<ListGraphType<UserSettingGetType>>(
                 "settings",
                 resolve: context => dbo.Query<UserSetting>($"SELECT * FROM USERSETTING WHERE USERID = {context.Source.ID}")
             );
-            Field<ListGraphType<UserTypeType>>(
+            Field<ListGraphType<UserTypeGetType>>(
                 "types",
                 resolve: context => dbo.Query<UserSetting>($"SELECT * FROM USERTYPE WHERE USERID = {context.Source.ID}")
             );

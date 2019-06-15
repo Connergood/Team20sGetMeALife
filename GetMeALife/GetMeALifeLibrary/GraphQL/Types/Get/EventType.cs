@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GetMeALifeLibrary.GraphQL.Types
+namespace GetMeALifeLibrary.GraphQL.Types.Get
 {
-    public class EventType : ObjectGraphType<Event>
+    public class EventGetType : ObjectGraphType<Event>
     {
-        public EventType(Database dbo)
+        public EventGetType(Database dbo)
         {
             Field(x => x.ID, type: typeof(IdGraphType)).Description("ID of the user");
             Field(x => x.Accessibility).Description("How accessible the event is 0-1");
@@ -24,7 +24,7 @@ namespace GetMeALifeLibrary.GraphQL.Types
             Field(x => x.Name).Description("The name of the event");
             Field(x => x.Participants).Description("The # of participants for the event");
             Field(x => x.Price).Description("the price of the event");
-            Field<ListGraphType<EventTypeType>>(
+            Field<ListGraphType<EventTypeGetType>>(
                 "type",
                 resolve: context => dbo.Query<UserSetting>($"SELECT * FROM EVENTTYPE WHERE ID = {context.Source.EventTypeID}")
             );

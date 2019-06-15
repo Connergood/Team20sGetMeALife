@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GetMeALifeLibrary.GraphQL.Types
+namespace GetMeALifeLibrary.GraphQL.Types.Get
 {
-    public class UserSettingType : ObjectGraphType<UserSetting>
+    public class UserSettingGetType : ObjectGraphType<UserSetting>
     {
-        public UserSettingType(Database dbo)
+        public UserSettingGetType(Database dbo)
         {
             Field(x => x.ID, type: typeof(IdGraphType)).Description("ID of the user");
             Field(x => x.UserID).Description("The ID of the user this setting is for");

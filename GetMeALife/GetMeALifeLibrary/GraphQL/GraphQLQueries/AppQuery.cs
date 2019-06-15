@@ -1,6 +1,7 @@
 ﻿using GetMeALibrary.Sql;
 using GraphQL.Types;
 using GetMeALibrary.Model;
+using GetMeALifeLibrary.GraphQL.Types.Get;
 
 namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
 {
@@ -8,23 +9,23 @@ namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
     {
         public AppQuery(Database context)
         {
-            Field<ListGraphType<Types.UserType>>(
+            Field<ListGraphType<UserGetType>>(
                 "users",
                 resolve: (ResolveFieldContext<object> ctx) => context.Query<User>("SELECT * FROM USER")
                 );
-            Field<ListGraphType<Types.UserSettingType>>(
+            Field<ListGraphType<UserSettingGetType>>(
                 "userSettings",
                 resolve: (ResolveFieldContext<object> ctx) => context.Query<User>("SELECT * FROM USERSETTING")
                 );
-            Field<ListGraphType<Types.UserTypeType>>(
+            Field<ListGraphType<UserTypeGetType>>(
                 "userTypes",
                 resolve: (ResolveFieldContext<object> ctx) => context.Query<User>("SELECT * FROM USERTYPE")
                 );
-            Field<ListGraphType<Types.EventType>>(
+            Field<ListGraphType<EventGetType>>(
                 "events",
                 resolve: (ResolveFieldContext<object> ctx) => context.Query<User>("SELECT * FROM EVENT")
                 );
-            Field<ListGraphType<Types.EventTypeType>>(
+            Field<ListGraphType<EventTypeGetType>>(
                 "eventTypes",
                 resolve: (ResolveFieldContext<object> ctx) => context.Query<User>("SELECT * FROM EVENTTYPE")
                 );

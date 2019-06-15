@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GetMeALibrary.Sql;
+﻿using GetMeALibrary.Sql;
 using GetMeALifeLibrary.GraphQL.GraphQLQueries;
 using GetMeALifeLibrary.GraphQL.GraphQLSchema;
-using GetMeALifeLibrary.GraphQL.Types;
+using GetMeALifeLibrary.GraphQL.Types.Get;
+using GetMeALifeLibrary.GraphQL.Types.Input;
 using GraphQL;
 using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace GetMeALifeAPI
 {
@@ -37,11 +31,13 @@ namespace GetMeALifeAPI
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<AppSchema>();
             services.AddScoped<AppQuery>();
-            services.AddScoped<UserType>();
-            services.AddScoped<UserSettingType>();
-            services.AddScoped<UserTypeType>();
-            services.AddScoped<EventType>();
-            services.AddScoped<EventTypeType>();
+            services.AddScoped<UserGetType>();
+            services.AddScoped<UserSettingGetType>();
+            services.AddScoped<UserTypeGetType>();
+            services.AddScoped<EventGetType>();
+            services.AddScoped<EventTypeGetType>();
+            services.AddScoped<AppMutation>();
+            services.AddScoped<UserInputType>();
 
             services.AddGraphQL(o => { o.ExposeExceptions = false; })
                 .AddGraphTypes(ServiceLifetime.Scoped);

@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GetMeALifeLibrary.GraphQL.Types
+namespace GetMeALifeLibrary.GraphQL.Types.Get
 {
-    public class UserTypeType : ObjectGraphType<GetMeALibrary.Model.UserType>
+    public class UserTypeGetType : ObjectGraphType<GetMeALibrary.Model.UserType>
     {
-        public UserTypeType(Database dbo)
+        public UserTypeGetType(Database dbo)
         {
             Field(x => x.ID, type: typeof(IdGraphType)).Description("ID of the user");
             Field(x => x.EventTypeID).Description("ID of the EventType this user attended.");
