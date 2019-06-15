@@ -2,16 +2,18 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GetMeALife.Views;
+using System.Net.Http;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace GetMeALife
 {
     public partial class App : Application
     {
-
+        public static readonly HttpClient client = new HttpClient();
         public App()
         {
             InitializeComponent();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

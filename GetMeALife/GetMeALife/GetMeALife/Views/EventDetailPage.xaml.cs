@@ -41,7 +41,7 @@ namespace GetMeALife.Views
             }
         }
 
-        public void OnConfirmClick()
+        public void OnConfirmClick(object sender, EventArgs e)
         {
             // Ping the DB to increment this type
 

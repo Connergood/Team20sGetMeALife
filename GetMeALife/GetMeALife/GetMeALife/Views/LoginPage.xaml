@@ -5,12 +5,12 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry 
-				x:Name="txtUsername" 
+				x:Name="etyUsername" 
 				VerticalOptions="Center" 
 				HorizontalOptions="Center" 
 				HorizontalTextAlignment="Center" 
 				Placeholder="Username" 
-				FontSize="{StaticResource Font-Normal}"
+				FontSize="Default"
                 MaxLength="20">
                 <Entry.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
@@ -19,13 +19,13 @@
                 </Entry.FontFamily>
             </Entry>
             <Entry 
-				x:Name="txtPassword" 
+				x:Name="etyPassword" 
 				VerticalOptions="Center" 
 				HorizontalOptions="Center" 
 				HorizontalTextAlignment="Center" 
 				Placeholder="Password" 
 				IsPassword="true" 
-				FontSize="{StaticResource Font-Normal}"
+				FontSize="Default"
                 MaxLength="20">
                 <Entry.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
@@ -39,9 +39,14 @@
 				HorizontalOptions="End" 
 				VerticalOptions="End" 
 				Clicked="OnLoginClicked" 
-				Font="{StaticResource Montserrat-SemiBold}" 
-				FontSize="{StaticResource Font-Large}">
-            </Button>  
+				FontSize="Large">
+            </Button>
+            <Label
+                x:Name="lblError"
+                Text=""
+                TextColor="OrangeRed"
+				FontSize="Large">
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

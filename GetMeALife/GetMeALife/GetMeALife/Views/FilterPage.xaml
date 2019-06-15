@@ -7,32 +7,24 @@
             <Button x:Name="btnGetLife"
                     Clicked="OnGetLifeClicked"
                     Text="Get Me A Life"
-                    Style="{StaticResource PageTitle}"
-                    Font="{StaticResource Montserrat-Medium}"
                     FontSize="17"
                     HorizontalOptions="StartAndExpand">
             </Button>
             <Button x:Name="btnSuggestLife"
                     Clicked="OnSuggestLifeClicked"
                     Text="Suggest Me A Life"
-                    Style="{StaticResource PageTitle}"
-                    Font="{StaticResource Montserrat-Medium}"
                     FontSize="17"
                     HorizontalOptions="StartAndExpand">
             </Button>
             <Button x:Name="btnFindLife"
                     Clicked="OnFindLifeClicked"
                     Text="Find Me A Life"
-                    Style="{StaticResource PageTitle}"
-                    Font="{StaticResource Montserrat-Medium}"
                     FontSize="17"
                     HorizontalOptions="StartAndExpand">
             </Button>
             <Button x:Name="btnAnotherLife"
                     Clicked="OnAnotherLifeClicked"
                     Text="Another Life"
-                    Style="{StaticResource PageTitle}"
-                    Font="{StaticResource Montserrat-Medium}"
                     FontSize="17"
                     HorizontalOptions="StartAndExpand">
             </Button>

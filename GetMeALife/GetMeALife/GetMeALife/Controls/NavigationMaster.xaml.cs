@@ -52,27 +52,27 @@ namespace GetMeALife.Controls
             #endregion
         }
 
-        public static void OnLogOutClicked()
+        public void OnLogOutClicked(object sender, EventArgs e)
         {
 
         }
 
-        public static void OnNewLifeClicked()
+        public void OnNewLifeClicked(object sender, EventArgs e)
         {
 
         }
 
-        public static void OnNotifyChanged()
+        public void OnNotifyChanged(object sender, PropertyChangedEventArgs e)
         {
 
         }
 
-        public static void OnPriceChanged()
+        public void OnPriceChanged(object sender, EventArgs e)
         {
 
         }
 
-        public static void OnRadiusChanged()
+        public void OnRadiusChanged(object sender, EventArgs e)
         {
 
         }

@@ -9,16 +9,12 @@
                     Clicked="OnNewLifeClicked"
                     Grid.Row="0"
                     Text="New Life"
-                    Style="{StaticResource PageTitle}"
-                    Font="{StaticResource Montserrat-Medium}"
                     FontSize="17"
                     HorizontalOptions="StartAndExpand">
             </Button>
             <Label x:Name="lblLifeChoices"
                    Grid.Row="1"
                    Text="Life Choices"
-                   Style="{StaticResource PageTitle}"
-                   Font="{StaticResource Montserrat-Medium}"
                    FontSize="17"
                    HorizontalOptions="Start">
             </Label>
@@ -26,8 +22,6 @@
                    Grid.Row="2"
                    Grid.Column="1"
                    Text="Search Radius"
-                   Style="{StaticResource PageTitle}"
-                   Font="{StaticResource Montserrat-Medium}"
                    FontSize="17"
                    HorizontalOptions="Start">
             </Label>
@@ -36,7 +30,6 @@
                    Grid.Column="2"
                    Placeholder="(Miles)"
                    TextChanged="OnRadiusChanged"
-                   Style="{StaticResource PageTitle}"
                    FontSize="17"
                    HorizontalOptions="Start"
                    MaxLength="3">
@@ -50,8 +43,6 @@
                    Grid.Row="3"
                    Grid.Column="1"
                    Text="Cost Limit"
-                   Style="{StaticResource PageTitle}"
-                   Font="{StaticResource Montserrat-Medium}"
                    FontSize="17"
                    HorizontalOptions="Start">
             </Label>
@@ -60,7 +51,6 @@
                    Grid.Column="2"
                    TextChanged="OnPriceChanged"
                    Placeholder="(Dollars)"
-                   Style="{StaticResource PageTitle}"
                    FontSize="17"
                    HorizontalOptions="Start"
                    MaxLength="3">
@@ -76,8 +66,6 @@
                    Text="Notify Me" 
                    Grid.Row="4"
                    Grid.Column="0"
-                   TextColor="{StaticResource DarkGray}"
-                   Font="{StaticResource Montserrat-Medium}"
                    FontSize="15"
 				   Margin="0,0,60,0"
                     />
@@ -91,8 +79,6 @@
                     Clicked="OnLogOutClicked"
                     Grid.Row="5"
                     Text="Log Out"
-                    Style="{StaticResource PageTitle}"
-                    Font="{StaticResource Montserrat-Medium}"
                     FontSize="17"
                     HorizontalOptions="StartAndExpand">
             </Button>

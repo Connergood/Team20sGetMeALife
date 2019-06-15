@@ -4,7 +4,7 @@
              x:Class="GetMeALife.Views.EventPage">
     <ContentPage.Content>
         <StackLayout>
-            <Grid x:Name="gridEmptyEventList" HorizontalOptions="FillAndExpand" Padding="10,5" Margin="{StaticResource TL-Grid-Margin}" IsVisible="False">
+            <Grid x:Name="gridEmptyEventList" HorizontalOptions="FillAndExpand" Padding="10,5" Margin="10" IsVisible="False">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100*"/>
                 </Grid.ColumnDefinitions>
@@ -19,7 +19,7 @@
                         x:Name="lstEvents"
                         SeparatorVisibility="None"
                         HasUnevenRows="true"
-                        ItemsSource="{Binding}">
+                        ItemsSource="{Binding eventList}">
                         <ListView.Header>
                             <Label HeightRequest="0"/>
                         </ListView.Header>
@@ -28,7 +28,7 @@
                                 <ViewCell>
                                     <StackLayout Padding="5,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
                                         <Grid 
-                                            BackgroundColor="{StaticResource White}" ColumnSpacing="0">
+                                            BackgroundColor="White" ColumnSpacing="0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="10" />
                                                 <ColumnDefinition Width="10" />
@@ -62,13 +62,13 @@
                                                 </RowDefinition>
                                             </Grid.RowDefinitions>
                                             <BoxView
-                                                Color="{Binding BarColor}"
+                                                Color="Black"
                                                 Grid.Column="0"
                                                 Grid.Row="0"
                                                 Grid.RowSpan="4"
                                                 Margin="0"/>
                                             <BoxView
-                                                Color="{Binding ChangeBarColor}"
+                                                Color="Black"
                                                 Grid.Column="1"
                                                 Grid.Row="0"
                                                 Grid.RowSpan="4"/>

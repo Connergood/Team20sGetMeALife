@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Grid 
-                                            BackgroundColor="{StaticResource White}" ColumnSpacing="0">
+                BackgroundColor="White" ColumnSpacing="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10" />
                     <ColumnDefinition Width="10" />
@@ -39,13 +39,13 @@
                     </RowDefinition>
                 </Grid.RowDefinitions>
                 <BoxView
-                                                Color="{Binding BarColor}"
+                                                Color="Black"
                                                 Grid.Column="0"
                                                 Grid.Row="0"
                                                 Grid.RowSpan="4"
                                                 Margin="0"/>
                 <BoxView
-                                                Color="{Binding ChangeBarColor}"
+                                                Color="Black"
                                                 Grid.Column="1"
                                                 Grid.Row="0"
                                                 Grid.RowSpan="4"/>

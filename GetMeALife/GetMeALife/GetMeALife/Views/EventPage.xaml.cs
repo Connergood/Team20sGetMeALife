@@ -14,11 +14,12 @@ namespace GetMeALife.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventPage : ContentPage
     {
+        public ListView ListView;
         public ObservableCollection<EventDetailViewModel> eventList = new ObservableCollection<EventDetailViewModel>();
         public EventPage()
         {
             InitializeComponent();
-
+            ListView = lstEvents;
             eventList.CollectionChanged += OnEventListChanged;
         }
 
