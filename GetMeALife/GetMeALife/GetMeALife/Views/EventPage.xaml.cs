@@ -1,5 +1,7 @@
-﻿using System;
+﻿using GetMeALife.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +11,16 @@ using Xamarin.Forms.Xaml;
 
 namespace GetMeALife.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EventPage : ContentPage
-	{
-		public EventPage ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class EventPage : ContentPage
+    {
+        public ObservableCollection<EventDetailViewModel> eventList = new ObservableCollection<EventDetailViewModel>();
+        public EventPage()
+        {
+            InitializeComponent();
+
+            eventList.CollectionChanged += OnEventListChanged;
+        }
 
         public static void LoadEvents(List<string> types, bool noRestriction = false)
         {
@@ -25,12 +30,37 @@ namespace GetMeALife.Views
 
             // Grab all events of types
 
-            // Filter events by location
         }
 
-        public static void OnEventClicked()
+        protected override void OnBindingContextChanged()
         {
+            //Don't remove this
+            base.OnBindingContextChanged();
 
+            eventList = (ObservableCollection<EventDetailViewModel>)BindingContext;
         }
-	}
+
+        public static void OnEventClicked(object sender, ItemTappedEventArgs e)
+        {
+            try
+            {
+                var listView = (ListView)sender;
+
+                if (listView.SelectedItem == null)
+                    return;
+
+                var selectedEvent = (EventDetailViewModel)listView.SelectedItem;
+
+                Application.Current.MainPage.Navigation.PushAsync(new EventDetailPage(selectedEvent));
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        public void OnEventListChanged(object sender, EventArgs e)
+        {
+            OnBindingContextChanged();
+        }
+    }
 }
