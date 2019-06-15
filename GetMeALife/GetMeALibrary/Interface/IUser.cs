@@ -1,6 +1,6 @@
 ﻿namespace GetMeALibrary.Interface
 {
-    public interface IUser
+    public interface IUser : IDatabaseObject
     {
         string FirstName { get; set; }
         string LastName { get; set; }
