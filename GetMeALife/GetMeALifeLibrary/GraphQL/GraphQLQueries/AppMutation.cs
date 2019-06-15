@@ -12,40 +12,79 @@ namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
     {
         public AppMutation(Database dbo)
         {
-            Field<UserGetType>(
-               "createUser",
-               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<UserInputType>> { Name = "user" }),
+            #region CreateMethods
+
+            RegisterCreateMethod<User, UserGetType, UserInputType>(dbo, "createUser", "user");
+            RegisterCreateMethod<UserType, UserTypeGetType, UserTypeInputType>(dbo, "createUserType", "userType");
+            RegisterCreateMethod<UserSetting, UserSettingGetType, UserSettingInputType>(dbo, "createUserSetting", "userSetting");
+            RegisterCreateMethod<Event, EventGetType, EventInputType>(dbo, "createEvent", "event");
+            RegisterCreateMethod<EventType, EventTypeGetType, EventTypeInputType>(dbo, "createEventType", "eventType");
+
+            #endregion CreateMethods
+
+            #region UpdateMethods
+
+            RegisterUpdateMethod<User, UserGetType, UserInputType>(dbo, "updateUser", "user", "userID");
+            RegisterUpdateMethod<UserType, UserTypeGetType, UserTypeInputType>(dbo, "updateUserType", "userType", "userTypeID");
+            RegisterUpdateMethod<UserSetting, UserSettingGetType, UserSettingInputType>(dbo, "updateUserSetting", "userSetting", "userSettingID");
+            RegisterUpdateMethod<Event, EventGetType, EventInputType>(dbo, "updateEvent", "event", "eventID");
+            RegisterUpdateMethod<EventType, EventTypeGetType, EventTypeInputType>(dbo, "updateEventType", "eventType", "eventTypeID");
+            
+            #endregion UpdateMethods
+        }
+
+        /// <summary>
+        /// Registers a creation method for a class
+        /// </summary>
+        /// <typeparam name="T">The ACTUAL object type we are using (ex:<see cref="User"/>)</typeparam>
+        /// <typeparam name="U">The GET object type for the object we are using (ex:<see cref="UserGetType"/>)</typeparam>
+        /// <typeparam name="V">The INPUT object type for the object we are using (ex:<see cref="UserGetType"/>)</typeparam>
+        private void RegisterCreateMethod<T,U,V>(Database dbo, string methodName, string objectName) 
+                                                               where T : DatabaseObject, new()
+                                                               where U : ObjectGraphType<T>
+                                                               where V : InputObjectGraphType
+        {
+            Field<U>(
+               methodName,
+               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<V>> { Name = objectName }),
                resolve: context =>
                {
-                   var user = context.GetArgument<User>("user");
-                   return dbo.Insert<User>("USER", "USERNAME, PASSWORD, PHONE, FIRSTNAME, LASTNAME", $"'{user.Username}', '{user.Password}', '{user.Phone}', '{user.FirstName}', '{user.LastName}'");
+                   var objectToCreate = context.GetArgument<T>(objectName);
+                   return dbo.Insert<T>(objectToCreate.GetTableName(), objectToCreate.GetInsertColumns(), objectToCreate.GetInsertValues());
                }
             );
-            Field<UserGetType>(
-               "updateUser",
+        }
+
+        /// <summary>
+        /// Registers an update method for a class
+        /// </summary>
+        /// <typeparam name="T">The ACTUAL object type we are using (ex:<see cref="User"/>)</typeparam>
+        /// <typeparam name="U">The GET object type for the object we are using (ex:<see cref="UserGetType"/>)</typeparam>
+        /// <typeparam name="V">The INPUT object type for the object we are using (ex:<see cref="UserGetType"/>)</typeparam>
+        private void RegisterUpdateMethod<T, U, V>(Database dbo, string methodName, string objectName, string objectIDName)
+                                                                                        where T : DatabaseObject, new()
+                                                                                        where U : ObjectGraphType<T>
+                                                                                        where V : InputObjectGraphType
+        {
+            Field<U>(
+               methodName,
                arguments: new QueryArguments(
-                            new QueryArgument<NonNullGraphType<UserInputType>> { Name = "user" },
-                            new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "userID" }),
+                            new QueryArgument<NonNullGraphType<V>> { Name = objectName },
+                            new QueryArgument<NonNullGraphType<IdGraphType>> { Name = objectIDName }),
                resolve: context =>
                {
-                   var updatedUser = context.GetArgument<User>("user");
-                   var userID = context.GetArgument<int>("userID");
+                   var updatedObject = context.GetArgument<T>(objectName);
+                   var objectID = context.GetArgument<int>(objectIDName);
 
-                   var dbUser = dbo.Query<User>("SELECT * FROM USER WHERE ID = " + userID).FirstOrDefault();
+                   var dbObject = dbo.Query<T>("SELECT * FROM "+ updatedObject.GetTableName() + " WHERE ID = " + objectID).FirstOrDefault();
 
-                   if(dbUser == null || dbUser.ID < 0)
+                   if (dbObject == null || dbObject.ID < 0)
                    {
-                       context.Errors.Add(new ExecutionError("Failed to find user for ID " + updatedUser.ID));
+                       context.Errors.Add(new ExecutionError($"Failed to find {objectName} for ID " + objectID));
                        return null;
                    }
 
-                   return dbo.Update<User>("USER",
-                       $"SET USERNAME = '{updatedUser.Username}', " +
-                       $"PASSWORD = '{updatedUser.Password}', " +
-                       $"PHONE = '{updatedUser.Phone}', " +
-                       $"FIRSTNAME = '{updatedUser.FirstName}', " +
-                       $"LASTNAME = '{updatedUser.LastName}' " +
-                       $"WHERE ID = {userID}");
+                   return dbo.Update<T>(updatedObject.GetTableName(), updatedObject.GetSetValues(objectID));
                }
             );
         }

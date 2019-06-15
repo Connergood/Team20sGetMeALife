@@ -38,6 +38,10 @@ namespace GetMeALifeAPI
             services.AddScoped<EventTypeGetType>();
             services.AddScoped<AppMutation>();
             services.AddScoped<UserInputType>();
+            services.AddScoped<UserSettingInputType>();
+            services.AddScoped<UserTypeInputType>();
+            services.AddScoped<EventTypeInputType>();
+            services.AddScoped<EventInputType>();
 
             services.AddGraphQL(o => { o.ExposeExceptions = false; })
                 .AddGraphTypes(ServiceLifetime.Scoped);

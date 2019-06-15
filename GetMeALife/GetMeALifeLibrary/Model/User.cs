@@ -15,6 +15,19 @@ namespace GetMeALibrary.Model
         public string Phone { get; set; }
         public string Username { get; set; }
 
+        public override string GetInsertColumns() { return "USERNAME, PASSWORD, PHONE, FIRSTNAME, LASTNAME"; }
+        
+        public override string GetInsertValues() { return $"'{Username}', '{Password}', '{Phone}', '{FirstName}', '{LastName}'"; }
+
+        public override string GetSetValues(int ID) { return $"SET USERNAME = '{Username}', " +
+                                                       $"PASSWORD = '{Password}', " +
+                                                       $"PHONE = '{Phone}', " +
+                                                       $"FIRSTNAME = '{FirstName}', " +
+                                                       $"LASTNAME = '{LastName}' " +
+                                                       $"WHERE ID = {ID}"; }
+
+        public override string GetTableName() { return "USER"; }
+
         public override void Parse(MySqlDataReader reader)
         {
             ID = Convert.ToInt32(reader["ID"].ToString());

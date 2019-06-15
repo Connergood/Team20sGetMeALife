@@ -17,13 +17,8 @@ namespace GetMeALifeAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            Database context = GetConnectionToDB();
-            var users = context.Query<User>("SELECT * FROM USER");
-            string[] values = new string[users.Count];
-            for (int i = 0; i < users.Count; i++)
-                values[i] = users[i].ToString();
-
-            return values;
+            string bordedURI = "https://www.boredapi.com/api/activity/";
+            return new string[] { "values" };
         }
 
         private Database GetConnectionToDB()
