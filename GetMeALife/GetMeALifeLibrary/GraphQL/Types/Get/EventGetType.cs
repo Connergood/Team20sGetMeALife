@@ -26,7 +26,7 @@ namespace GetMeALifeLibrary.GraphQL.Types.Get
             Field(x => x.Price).Description("the price of the event");
             Field<ListGraphType<EventTypeGetType>>(
                 "type",
-                resolve: context => dbo.Query<UserSetting>($"SELECT * FROM EVENTTYPE WHERE ID = {context.Source.EventTypeID}")
+                resolve: context => dbo.Query<EventType>($"SELECT * FROM EVENTTYPE WHERE ID = {context.Source.EventTypeID}")
             );
         }
     }

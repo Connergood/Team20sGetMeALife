@@ -24,7 +24,7 @@ namespace GetMeALifeLibrary.GraphQL.Types.Get
             );
             Field<ListGraphType<UserTypeGetType>>(
                 "types",
-                resolve: context => dbo.Query<UserSetting>($"SELECT * FROM USERTYPE WHERE USERID = {context.Source.ID}")
+                resolve: context => dbo.Query<UserType>($"SELECT * FROM USERTYPE WHERE USERID = {context.Source.ID}")
             );
         }
     }
