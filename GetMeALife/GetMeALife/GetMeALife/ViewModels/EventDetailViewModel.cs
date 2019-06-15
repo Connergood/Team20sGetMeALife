@@ -8,12 +8,10 @@ namespace GetMeALife.ViewModels
     public class EventDetailViewModel
     {
         public EventDetail eventDetail { get; set; }
-        private bool _isConfirmed { get; set; }
 
-        public bool isConfirmed
-        {
-            get { return _isConfirmed; }
-        }
+        public bool isConfirmed { get; set; }
+
+        public EventListViewModel eventList { get; set; }
     }
 
     public class EventDetail : Event

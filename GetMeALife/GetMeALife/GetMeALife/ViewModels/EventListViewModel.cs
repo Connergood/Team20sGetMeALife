@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GetMeALibrary.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace GetMeALife.ViewModels
 {
-    class EventListViewModel
+    public class EventListViewModel
     {
         private bool _isVisible { get; set; } = true;
 
