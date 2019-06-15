@@ -10,8 +10,10 @@ namespace GetMeALibrary.Interface
         DateTime EventEnd { get; set; }
         DateTime EventStart { get; set; }
         int EventTypeID { get; set; }
+        double Latitude { get; set; }
         string LocationAddress { get; set; }
         string LocationName { get; set; }
+        double Longitude { get; set; }
         string Name { get; set; }
         int Participants { get; set; }
         double Price { get; set; }
