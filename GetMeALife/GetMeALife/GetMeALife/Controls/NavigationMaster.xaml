@@ -4,31 +4,124 @@
              x:Class="GetMeALife.Controls.NavigationMaster"
              Title="Master">
   <StackLayout>
+        <Grid>
+            <Button x:Name="btnNewLife"
+                    Clicked="OnNewLifeClicked"
+                    Grid.Row="0"
+                    Text=""
+                    Style="{StaticResource PageTitle}"
+                    Font="{StaticResource Montserrat-Medium}"
+                    FontSize="17"
+                    HorizontalOptions="StartAndExpand">
+            </Button>
+            <Label x:Name="lblLifeChoices"
+                   Grid.Row="1"
+                   Text="Life Choices"
+                   Style="{StaticResource PageTitle}"
+                   Font="{StaticResource Montserrat-Medium}"
+                   FontSize="17"
+                   HorizontalOptions="Start">
+            </Label>
+            <Label x:Name="lblSearchRadius"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   Text="Search Radius"
+                   Style="{StaticResource PageTitle}"
+                   Font="{StaticResource Montserrat-Medium}"
+                   FontSize="17"
+                   HorizontalOptions="Start">
+            </Label>
+            <Entry x:Name="etySearchRadius"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   Placeholder="(Miles)"
+                   TextChanged="OnRadiusChanged"
+                   Style="{StaticResource PageTitle}"
+                   FontSize="17"
+                   HorizontalOptions="Start"
+                   MaxLength="3">
+                   <Entry.FontFamily>
+                       <OnPlatform x:TypeArguments="x:String">
+                           <On Platform="Android" Value="Font/Montserrat-SemiBold.ttf#Montserrat-SemiBold" />
+                       </OnPlatform>
+                   </Entry.FontFamily>
+            </Entry>
+            <Label x:Name="lblCostLimit"
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   Text="Cost Limit"
+                   Style="{StaticResource PageTitle}"
+                   Font="{StaticResource Montserrat-Medium}"
+                   FontSize="17"
+                   HorizontalOptions="Start">
+            </Label>
+            <Entry x:Name="etyCostLimit"
+                   Grid.Row="3"
+                   Grid.Column="2"
+                   TextChanged="OnPriceChanged"
+                   Placeholder="(Dollars)"
+                   Style="{StaticResource PageTitle}"
+                   FontSize="17"
+                   HorizontalOptions="Start"
+                   MaxLength="3">
+                <Entry.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Font/Montserrat-SemiBold.ttf#Montserrat-SemiBold" />
+                    </OnPlatform>
+                </Entry.FontFamily>
+            </Entry>
+            <Label x:Name="lblNotify"
+                   VerticalOptions="Fill" 
+                   VerticalTextAlignment="Center"
+                   Text="Notify Me" 
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   TextColor="{StaticResource DarkGray}"
+                   Font="{StaticResource Montserrat-Medium}"
+                   FontSize="15"
+				   Margin="0,0,60,0"
+                    />
+            <Switch 
+                   x:Name="swNotify"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   PropertyChanged="OnNotifyChanged"
+            />
+            <Button x:Name="btnLogOut"
+                    Clicked="OnLogOutClicked"
+                    Grid.Row="5"
+                    Text="Log Out"
+                    Style="{StaticResource PageTitle}"
+                    Font="{StaticResource Montserrat-Medium}"
+                    FontSize="17"
+                    HorizontalOptions="StartAndExpand">
+            </Button>
+        </Grid>
     <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
-      <ListView.Header>
-        <Grid BackgroundColor="#03A9F4">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
-          </Grid.ColumnDefinitions>
-          <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-          </Grid.RowDefinitions>
-          <Label
+            <ListView.Header>
+                <Grid BackgroundColor="#03A9F4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <Label
               Grid.Column="1"
               Grid.Row="2"
               Text="AppName"
               Style="{DynamicResource SubtitleStyle}"/>
-        </Grid>
-      </ListView.Header>
-      <ListView.ItemTemplate>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
             <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">

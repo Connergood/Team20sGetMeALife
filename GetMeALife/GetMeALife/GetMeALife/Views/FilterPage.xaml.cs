@@ -16,5 +16,25 @@ namespace GetMeALife.Views
 		{
 			InitializeComponent ();
 		}
+
+        public static void OnAnotherLifeClick()
+        {
+
+        }
+
+        public static void OnFindLifeClick()
+        {
+
+        }
+
+        public static void OnGetLifeClick()
+        {
+
+        }
+
+        public static void OnSuggestLifeClick()
+        {
+
+        }
 	}
 }

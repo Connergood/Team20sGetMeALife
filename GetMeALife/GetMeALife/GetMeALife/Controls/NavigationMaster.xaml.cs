@@ -51,5 +51,30 @@ namespace GetMeALife.Controls
             }
             #endregion
         }
+
+        public static void OnLogOutClicked()
+        {
+
+        }
+
+        public static void OnNewLifeClicked()
+        {
+
+        }
+
+        public static void OnNotifyChanged()
+        {
+
+        }
+
+        public static void OnPriceChanged()
+        {
+
+        }
+
+        public static void OnRadiusChanged()
+        {
+
+        }
     }
 }

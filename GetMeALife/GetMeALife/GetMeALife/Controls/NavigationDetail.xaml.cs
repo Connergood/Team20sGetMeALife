@@ -16,5 +16,10 @@ namespace GetMeALife.Controls
         {
             InitializeComponent();
         }
+
+        public static void OnConfirmClick()
+        {
+
+        }
     }
 }

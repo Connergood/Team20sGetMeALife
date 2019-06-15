@@ -16,5 +16,10 @@ namespace GetMeALife.Views
 		{
 			InitializeComponent ();
 		}
+
+        public static void OnLoginClicked()
+        {
+
+        }
 	}
 }
