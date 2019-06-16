@@ -1,9 +1,11 @@
 # GetMeALife
-## Because you're not meant to live your life alone.
+### You weren't meant to live alone....so go get a life
 
-Hello and welcome to our App. We hope you enjoy your new life!
+Hello and welcome to our App. We hope you enjoy your new life doing more things and meeting people (that is if you want to)!
+
 
 ### How to Install/Run:
+
 1. There will be an .apk files uploaded to the github in the APKs folder. 
 2. The APK will work on an Android Device of version 8.0 (API Level 26) and up, if for any reason a lower version is required feel free to contact me via Slack. 
 3. Download the APK your Android Device, and "run" it from the downloads to install it to your phone, you may be prompted that the APK is unsafe and that Google Play doesn't recognize the developer, simply press install anyway and we promise that it's not malicious ;).
@@ -15,12 +17,15 @@ After you install and open the Get Me A Life, you will be prompted with a Login 
 2. You can login using the same username/password to access the same user account, doing so will build your preferences over time. 
 3. Logging in with fresh credentials will give you a new user/tutorial experience until you have tracked your first event or you close/reopen the app.
 
-### Now that you can login what is this piece of loveliness called GetMeALife:
+### Now that you can login what is this piece of loveliness called Get Me A Life:
+
 1. Get Me A Life is based around not only the prompt given at the start of the hackathon, but the idea of pulling users out to events near them by giving them multiple choices related to their preferences. 
 2. On first use, a user would simply get nearby events, and would choose the events that they want to go to by confirming them in the app.
 3. As the user confirms more and more, their "preference" profile would be built up - and there would be a separate option for that user to search based more on their preferences, this would be the "Suggest Me A Life" option. 
 4. The Another Life option is based around the idea that the user might want to go against their preferences - so that option would look at events not within user preferences.
-5. There were plans for a decision tree based option, where users would select various options like "Active/Spectator" or "Group/Solo" or "Family Oriented/Non Family Oriented", and events would be filtered out until there was a curated list. However, we were unable to implement that at this time.
+5. Get Me A Life also has a first time user experience. That way if someones new to the app they get a few prompts teaching them that we build a profile based off their actions.
+6. There were plans for a decision tree based option, where users would select various options like "Active/Spectator" or "Group/Solo" or "Family Oriented/Non Family Oriented", and events would be filtered out until there was a curated list. However, we were unable to implement that at this time.
+7. Finally there is a way for Businesses to get in on this app (though not implemented). Users/Businesses can create their own events from the app once they have attended enough events and show they are committed. Businesses can skip this step by reaching out to fakebusinessemail@RealBusiness.com to get access to a profile for making events. 
 
 ### What did we use?
 
