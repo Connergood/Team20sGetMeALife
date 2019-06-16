@@ -25,7 +25,7 @@ namespace GetMeALibrary.Model
 
         public override string GetInsertColumns() { return "ACCESSIBILITY, DESCRIPTION, EVENTDATE, EVENTEND, EVENTSTART, EVENTTYPEID, LATITUDE, LOCATIONADDRESS, LOCATIONNAME, LONGITUDE, NAME, PARTICIPANTS, PRICE"; }
 
-        public override string GetInsertValues() { return $"'{accessibility}', '{description}', '{eventdate.ToString("dd/mm/yyyy")}, { eventend.ToString("dd/mm/yyyy HH:mm")}, { eventstart.ToString("dd/mm/yyyy HH:mm")}, {eventtypeid}, {latitude}, '{locationaddress}', '{locationname}', {longitude}, '{name}', {participants}, {price}"; }
+        public override string GetInsertValues() { return $"'{accessibility}', '{description}', '{eventdate.ToString("yyyy-MM-dd HH:mm:ss")}', '{ eventend.ToString("yyyy-MM-dd HH:mm:ss")}', '{ eventstart.ToString("yyyy-MM-dd HH:mm:ss")}', {eventtypeid}, {latitude}, '{locationaddress}', '{locationname}', {longitude}, '{name}', {participants}, {price}"; }
 
         public override string GetSetValues(int ID)
         {
@@ -50,7 +50,7 @@ namespace GetMeALibrary.Model
         {
             id = Convert.ToInt32(reader["ID"]);
             accessibility = Convert.ToDouble(reader["ACCESSIBILITY"].ToString());
-            description = reader["DECSRIPTION"].ToString();
+            description = reader["DESCRIPTION"].ToString();
             eventdate = Convert.ToDateTime(reader["EVENTDATE"].ToString());
             eventend = Convert.ToDateTime(reader["EVENTEND"].ToString());
             eventstart = Convert.ToDateTime(reader["EVENTSTART"].ToString());

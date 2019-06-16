@@ -8,7 +8,7 @@ namespace GetMeALifeLibrary.GraphQL.Types.Input
         {
             Name = "eventInput";
             Field<NonNullGraphType<StringGraphType>>("accessibility");
-            Field<NonNullGraphType<StringGraphType>>("decsription");
+            Field<NonNullGraphType<StringGraphType>>("description");
             Field<NonNullGraphType<DateTimeGraphType>>("eventdate");
             Field<NonNullGraphType<DateTimeGraphType>>("eventend");
             Field<NonNullGraphType<DateTimeGraphType>>("eventstart");

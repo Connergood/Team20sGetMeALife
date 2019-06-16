@@ -17,6 +17,7 @@ namespace GetMeALifeLibrary.GraphQL.Types.Get
             Field(x => x.eventdate).Description("The Date of the event");
             Field(x => x.eventend).Description("The End Time of the event");
             Field(x => x.eventstart).Description("The start time of the event");
+            Field(x => x.eventtypeid).Description("the id of the type of event this is");
             Field(x => x.locationaddress).Description("The string address of the event location");
             Field(x => x.locationname).Description("The name of the location");
             Field(x => x.latitude).Description("The latitude of the event");
