@@ -14,7 +14,7 @@
                     HeightRequest="50"
                     BackgroundColor="WhiteSmoke"
                     Opacity=".8"
-                    BorderColor="Gray"
+                    BorderColor="LightSeaGreen"
                     BorderRadius="30"
                     BorderWidth="2"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
@@ -34,7 +34,7 @@
                     HeightRequest="50"
                     BackgroundColor="WhiteSmoke"
                     Opacity=".8"
-                    BorderColor="Gray"
+                    BorderColor="LightSeaGreen"
                     BorderRadius="30"
                     BorderWidth="2"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
@@ -54,7 +54,7 @@
                     HeightRequest="50"
                     BackgroundColor="WhiteSmoke"
                     Opacity=".8"
-                    BorderColor="Gray"
+                    BorderColor="LightSeaGreen"
                     BorderRadius="30"
                     BorderWidth="2"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
@@ -74,7 +74,7 @@
                     HeightRequest="50"
                     BackgroundColor="WhiteSmoke"
                     Opacity=".8"
-                    BorderColor="Gray"
+                    BorderColor="LightSeaGreen"
                     BorderRadius="30"
                     BorderWidth="2"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
