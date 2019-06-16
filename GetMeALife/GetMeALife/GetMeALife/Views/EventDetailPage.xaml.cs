@@ -26,8 +26,8 @@ namespace GetMeALife.Views
 
             lblName.Text = details.Name;
             lblType.Text = details.TypeName;
-            lblTime.Text = details.EventStart.ToShortTimeString() + " - " + details.EventEnd.ToShortTimeString();
-            lblLocation.Text = details.LocationName;
+            lblTime.Text = details.Eventstart.ToShortTimeString() + " - " + details.Eventend.ToShortTimeString();
+            lblLocation.Text = details.Locationname;
             lblDescription.Text = details.Decsription;
 
             if (details.Price == 0)

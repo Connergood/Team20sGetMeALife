@@ -7,17 +7,17 @@ namespace GetMeALibrary.Model
     public class UserSetting : DatabaseObject, IUserSetting
     {
         public string Name { get; set; }
-        public int UserID { get; set; }
+        public int Userid { get; set; }
         public string Value { get; set; }
 
         public override string GetInsertColumns() { return "NAME, USERID, VALUE"; }
 
-        public override string GetInsertValues() { return $"'{Name}', {UserID}, '{Value}'"; }
+        public override string GetInsertValues() { return $"'{Name}', {Userid}, '{Value}'"; }
 
         public override string GetSetValues(int ID)
         {
             return $"SET NAME = '{Name}', " +
-             $"USERID = {UserID}, " +
+             $"USERID = {Userid}, " +
              $"VALUE = '{Value}', " +
              $"WHERE ID = {ID}";
         }
@@ -30,7 +30,7 @@ namespace GetMeALibrary.Model
         {
             ID = Convert.ToInt32(reader["ID"].ToString());
             Name = reader["NAME"].ToString();
-            UserID = Convert.ToInt32(reader["USERID"].ToString());
+            Userid = Convert.ToInt32(reader["USERID"].ToString());
             Value = reader["VALUE"].ToString();
         }
     }
