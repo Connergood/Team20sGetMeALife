@@ -28,7 +28,6 @@ namespace GetMeALife.Views
             var responseString = App.client.GetStringAsync("http://getmealife.azurewebsites.net/graphql?query={users{firstName,lastName,username,password,phone}}");
             responseString.Wait();
 
-
             User user = null;
             
             if (user != null)

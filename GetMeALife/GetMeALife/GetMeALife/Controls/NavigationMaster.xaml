@@ -3,86 +3,105 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetMeALife.Controls.NavigationMaster"
              Title="Master">
-  <StackLayout>
+    <StackLayout>
         <ListView               
             SeparatorVisibility="None"
             HasUnevenRows="true"
             ItemsSource="{Binding MenuItems}">
             <ListView.Header>
                 <Grid>
-            <Button x:Name="btnNewLife"
-                    Clicked="OnNewLifeClicked"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="New Life"
-                    FontSize="20"
-                    HorizontalOptions="StartAndExpand">
-            </Button>
-            <Label x:Name="lblLifeChoices"
-                   Grid.Row="1"
+                    <Label x:Name="lblLifeChoices"
+                   Grid.Row="0"
                    Grid.Column="0"
+                   Grid.ColumnSpan="2"
                    Text="Life Choices"
-                   FontSize="20"
-                   HorizontalOptions="Start">
-            </Label>
-            <Label x:Name="lblSearchRadius"
-                   Grid.Row="2"
+                   FontSize="30"
+                   HorizontalOptions="Start"
+                   Margin="20,20,0,0">
+                    </Label>
+                    <Label x:Name="lblSearchRadius"
+                   Grid.Row="1"
                    Grid.Column="0"
                    Text="Search Radius"
                    FontSize="15"
-                   HorizontalTextAlignment="Start">
-            </Label>
-            <Entry x:Name="etySearchRadius"
-                   Grid.Row="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalOptions="Center"
+                   Margin="40,0,0,0">
+                    </Label>
+                    <Entry x:Name="etySearchRadius"
+                   Grid.Row="1"
                    Grid.Column="1"
                    Placeholder="(Miles)"
                    TextChanged="OnRadiusChanged"
                    FontSize="15"
-                   HorizontalOptions="Start"
-                   MaxLength="3">
-            </Entry>
-            <Label x:Name="lblCostLimit"
-                   Grid.Row="3"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   MaxLength="3"
+                   Margin="0,0,0,0">
+                    </Entry>
+                    <Label x:Name="lblCostLimit"
+                   Grid.Row="2"
                    Grid.Column="0"
                    Text="Cost Limit"
                    FontSize="15"
                    HorizontalTextAlignment="Start"
-				   Margin="20,0,0,0">
-            </Label>
-            <Entry x:Name="etyCostLimit"
-                   Grid.Row="3"
+                   VerticalOptions="Center"
+				   Margin="40,0,0,0">
+                    </Label>
+                    <Entry x:Name="etyCostLimit"
+                   Grid.Row="2"
                    Grid.Column="1"
                    TextChanged="OnPriceChanged"
                    Placeholder="(Dollars)"
                    FontSize="15"
-                   HorizontalOptions="Start"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
                    MaxLength="3">
-            </Entry>
-            <Label x:Name="lblNotify"
+                    </Entry>
+                    <Label x:Name="lblNotify"
                    VerticalOptions="Fill" 
                    VerticalTextAlignment="Center"
                    Text="Notify Me" 
-                   Grid.Row="4"
+                   Grid.Row="3"
                    Grid.Column="0"
                    HorizontalTextAlignment="Start"
                    FontSize="15"
-				   Margin="20,0,0,0"
+				   Margin="40,0,0,0"
                     />
-            <Switch 
+                    <Switch 
                    x:Name="swNotify"
-                   Grid.Row="4"
+                   Grid.Row="3"
                    Grid.Column="1"
                    PropertyChanged="OnNotifyChanged"
-            />
-            <Button x:Name="btnLogOut"
+                   Margin="0,0,50,0"
+                    />
+                    <Button x:Name="btnNewLife"
+                    Clicked="OnNewLifeClicked"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Text="New Life"
+                    FontSize="30"
+                    WidthRequest="250"
+                    HeightRequest="50"
+                    HorizontalOptions="StartAndExpand"
+                    BackgroundColor="LightSeaGreen"
+                    Opacity=".9"
+                    Margin="20,0,0,0">
+                    </Button>
+                    <Button x:Name="btnLogOut"
                     Clicked="OnLogOutClicked"
                     Grid.Row="5"
                     Grid.Column="0"
                     Text="Log Out"
-                    FontSize="20"
-                    HorizontalOptions="StartAndExpand">
-            </Button>
-        </Grid>
+                    FontSize="30"
+                    WidthRequest="250"
+                    HeightRequest="50"
+                    HorizontalOptions="StartAndExpand"
+                    BackgroundColor="LightSeaGreen"
+                    Opacity=".9"
+                    Margin="20,0,0,0">
+                    </Button>
+                </Grid>
             </ListView.Header>
         </ListView>
         <!--<ListView x:Name="MenuItemsListView"
@@ -122,5 +141,5 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>-->
-  </StackLayout>
+    </StackLayout>
 </ContentPage>

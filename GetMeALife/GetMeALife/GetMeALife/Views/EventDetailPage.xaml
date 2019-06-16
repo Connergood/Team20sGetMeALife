@@ -3,59 +3,104 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetMeALife.Views.EventDetailPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Grid 
-                BackgroundColor="White" ColumnSpacing="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10" />
-                    <ColumnDefinition Width="10" />
-                    <ColumnDefinition Width="62*" />
-                    <ColumnDefinition>
-                        <ColumnDefinition.Width>
-                            <OnIdiom x:TypeArguments="GridLength" Phone="45*" Tablet="28*" />
-                        </ColumnDefinition.Width>
-                    </ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition>
-                        <RowDefinition.Height>
-                            <OnIdiom x:TypeArguments="GridLength" Phone="31" Tablet="47"/>
-                        </RowDefinition.Height>
-                    </RowDefinition>
-                    <RowDefinition>
-                        <RowDefinition.Height>
-                            <OnIdiom x:TypeArguments="GridLength" Phone="20" Tablet="30"/>
-                        </RowDefinition.Height>
-                    </RowDefinition>
-                    <RowDefinition>
-                        <RowDefinition.Height>
-                            <OnIdiom x:TypeArguments="GridLength" Phone="30" Tablet="45"/>
-                        </RowDefinition.Height>
-                    </RowDefinition>
-                    <RowDefinition>
-                        <RowDefinition.Height>
-                            <OnIdiom x:TypeArguments="GridLength" Phone="27" Tablet="41"/>
-                        </RowDefinition.Height>
-                    </RowDefinition>
-                </Grid.RowDefinitions>
-                <BoxView
-                                                Color="Black"
-                                                Grid.Column="0"
-                                                Grid.Row="0"
-                                                Grid.RowSpan="4"
-                                                Margin="0"/>
-                <BoxView
-                                                Color="Black"
-                                                Grid.Column="1"
-                                                Grid.Row="0"
-                                                Grid.RowSpan="4"/>
-                <Label x:Name="lblName" Font="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" HorizontalOptions="CenterAndExpand"></Label>
-                <Label x:Name="lblType" Font="Large" HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"></Label>
-                <Label x:Name="lblPrice" Font="Large" HorizontalTextAlignment="End" HorizontalOptions="End"></Label>
-                <Label x:Name="lblLocation" Font="Medium" HorizontalTextAlignment="Start" HorizontalOptions="Start"></Label>
-                <Label x:Name="lblTime" Font="Medium" HorizontalTextAlignment="End" HorizontalOptions="End"></Label>
-                <Label x:Name="lblDescription" Font="Medium" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"></Label>
-            </Grid>
-        </StackLayout>
+        <RelativeLayout>
+            <Label x:Name="lblName" 
+                   Text="TestName" 
+                   Font="40" 
+                   HorizontalTextAlignment="Center" 
+                   VerticalTextAlignment="Start" 
+                   HorizontalOptions="CenterAndExpand"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                   Property=Height,Factor=.05,Constant=0}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Height,Factor=.44,Constant=0}"
+                   ></Label>
+            <Label x:Name="lblType" 
+                   Text="TestType" 
+                   Font="Large" 
+                   HorizontalTextAlignment="Start"  
+                   HorizontalOptions="StartAndExpand"
+                   Margin="30,0,0,0"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                   Property=Height,Factor=.2,Constant=0}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Height,Factor=.44,Constant=0}"
+                   ></Label>
+            <Label x:Name="lblPrice" 
+                   Text="TestPrice" 
+                   Font="Large" 
+                   HorizontalTextAlignment="End" 
+                   HorizontalOptions="End"
+                   Margin="0,0,30,0"                   
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                   Property=Height,Factor=.2,Constant=0}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Height,Factor=.44,Constant=0}"                   
+                   ></Label>
+            <Label x:Name="lblLocation" 
+                   Text="TestLocation" 
+                   Font="Large" 
+                   HorizontalTextAlignment="Start" 
+                   HorizontalOptions="Start"
+                   Margin="30,0,0,0"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                   Property=Height,Factor=.30,Constant=0}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Height,Factor=.44,Constant=0}"                   
+                   ></Label>
+            <Label x:Name="lblTime" 
+                   Text="TestTime" 
+                   Font="Large" 
+                   HorizontalTextAlignment="End" 
+                   HorizontalOptions="End"
+                   Margin="0,0,30,0"  
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                   Property=Height,Factor=.30,Constant=0}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Height,Factor=.44,Constant=0}"                   
+                   ></Label>
+            <Label x:Name="lblDescription" 
+                   Text="TestDescription" 
+                   Font="Large" 
+                   HorizontalTextAlignment="Start" 
+                   HorizontalOptions="StartAndExpand"
+                   Margin="30,0,0,0"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                   Property=Height,Factor=.4,Constant=0}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Height,Factor=.44,Constant=0}"                   
+                   ></Label>
+            <Button x:Name="btnConfirm"
+                    Clicked="OnConfirmClicked"
+                    Text="Get A Life"
+                    FontSize="30"
+                    WidthRequest="250"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    BackgroundColor="LightSeaGreen"
+                    Opacity=".9"
+                    BorderRadius="30"
+                    BorderWidth="2"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                   Property=Height,Factor=.6,Constant=0}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression
+                   Type=RelativeToParent,Property=Height,Factor=.075,Constant=0}"
+                    >
+            </Button>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
