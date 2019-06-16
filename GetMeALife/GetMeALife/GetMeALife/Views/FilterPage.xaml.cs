@@ -20,8 +20,11 @@ namespace GetMeALife.Views
             BackgroundImage = "background.jpg";
         }
 
-        public void OnAnotherLifeClicked(object sender, EventArgs e)
+        public async void OnAnotherLifeClicked(object sender, EventArgs e)
         {
+            if (App.FirstTime)
+                await DisplayAlert("Hold on there", "Great to see you're so proactive! Another Life will provide you with insights to all the nearby events based on events you've never attended. The more events you track, the more suggestions we can provide, so until you start tracking events we can't provide as filtered suggestions here.", "OK!");
+
             var eventTypesIDs = GetMostFrequentedEventTypes();
             if (!Util.ArrayIsNullOrEmpty(eventTypesIDs.ToArray()))
                 Application.Current.MainPage = new NavigationPage(new EventPage(eventTypesIDs, true));
@@ -36,8 +39,10 @@ namespace GetMeALife.Views
             await DisplayAlert("We're Sorry!", "This feature is still in development. Please try one of our other life options.", "Darn!");
         }
 
-        public void OnGetLifeClicked(object sender, EventArgs e)
+        public async void OnGetLifeClicked(object sender, EventArgs e)
         {
+            if(App.FirstTime)
+                await DisplayAlert("Let's Get Started", "Get Me A Life will provide you with insights to all the nearby events. The more events you track, the more suggestiosn we can provide in other life options. ", "OK!");
             List<int> eventTypeIDs = Api.GetList<EventType>(App.ApiUrl, new EventType()).Select(et => et.id).ToList();
 
             if (eventTypeIDs != null)
@@ -46,8 +51,10 @@ namespace GetMeALife.Views
             }
         }
 
-        public void OnSuggestLifeClicked(object sender, EventArgs e)
+        public async void OnSuggestLifeClicked(object sender, EventArgs e)
         {
+            if (App.FirstTime)
+                await DisplayAlert("Hold on there", "Great to see you're so proactive! Suggest Me A Life will provide you with insights to all the nearby events based on events you've attended. The more events you track, the more suggestions we can provide, so until you start tracking events we can't provide as filtered suggestions here.", "OK!");
             var eventTypesIDs = GetMostFrequentedEventTypes();
             if (!Util.ArrayIsNullOrEmpty(eventTypesIDs.ToArray()))
                 Application.Current.MainPage = new NavigationPage(new EventPage(eventTypesIDs));
