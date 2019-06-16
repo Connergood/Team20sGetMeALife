@@ -8,6 +8,9 @@ using GetMeALifeLibrary.BoredApi;
 
 namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
 {
+    /// <summary>
+    /// Class reperesentation of all the object(s) we can query for in the Schema
+    /// </summary>
     public class AppQuery : ObjectGraphType
     {
         public AppQuery(Database dbo)
@@ -24,6 +27,16 @@ namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
             RegisterGetSingleMethod<EventType, EventTypeGetType>(dbo, "eventtype", "eventtypeID");
         }
 
+        /// <summary>
+        /// Registers a method that allows users to query for multiple of a single object
+        /// </summary>
+        /// <typeparam name="T">The ACTUAL object we will get back</typeparam>
+        /// <typeparam name="U">The GET type of the object we want</typeparam>
+        /// <param name="dbo">our connection to the database</param>
+        /// <param name="methodName">the Graph QL name of this method</param>
+        /// <remarks>
+        /// For <see cref="Event"/>s we include objects from https://www.boredapi.com/
+        /// </remarks>
         private void RegisterGetManyMethod<T, U>(Database dbo, string methodName) where T : DatabaseObject, new()
                                                                                  where U : ObjectGraphType<T>
         {
@@ -43,6 +56,14 @@ namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
                 }
             );
         }
+
+        /// <summary>
+        /// Registers a method that allows users to query for multiple of a single object
+        /// </summary>
+        /// <typeparam name="T">The ACTUAL object we will get back</typeparam>
+        /// <typeparam name="U">The GET type of the object we want</typeparam>
+        /// <param name="dbo">our connection to the database</param>
+        /// <param name="methodName">the Graph QL name of this method</param>
         private void RegisterGetSingleMethod<T, U>(Database dbo, string methodName, string IDName) where T : DatabaseObject, new()
                                                                                                    where U : ObjectGraphType<T>
         {

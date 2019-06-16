@@ -8,6 +8,9 @@ using System.Linq;
 
 namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
 {
+    /// <summary>
+    /// Class representation of all Mutations we can do in our Schema
+    /// </summary>
     public class AppMutation : ObjectGraphType
     {
         public AppMutation(Database dbo)
