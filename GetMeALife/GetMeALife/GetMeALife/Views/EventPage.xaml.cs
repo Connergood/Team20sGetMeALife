@@ -25,6 +25,7 @@ namespace GetMeALife.Views
             ListView = lstEvents;
             eventList.CollectionChanged += OnEventListChanged;
             eventTypeIDs = typeIDs;
+            LoadEvents();
         }
 
         public void LoadEvents()
@@ -37,6 +38,7 @@ namespace GetMeALife.Views
                 foreach (var e in events)
                 {
                     var eventModel = new EventDetailViewModel();
+                    eventModel.eventDetail = new EventDetail();
                     eventModel.eventDetail.accessibility = e.accessibility;
                     eventModel.eventDetail.description = e.description;
                     eventModel.eventDetail.eventdate = e.eventdate;
@@ -61,7 +63,7 @@ namespace GetMeALife.Views
             //Don't remove this
             base.OnBindingContextChanged();
 
-            eventList = (ObservableCollection<EventDetailViewModel>)BindingContext;
+            //eventList = (ObservableCollection<EventDetailViewModel>)BindingContext;
         }
 
         public static void OnEventClicked(object sender, ItemTappedEventArgs e)

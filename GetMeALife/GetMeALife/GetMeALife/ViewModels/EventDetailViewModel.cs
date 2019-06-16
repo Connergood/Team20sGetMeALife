@@ -13,6 +13,30 @@ namespace GetMeALife.ViewModels
         public bool isConfirmed { get; set; }
 
         public EventListViewModel eventList { get; set; }
+
+        public string name
+        {
+            get
+            {
+                return eventDetail.name;
+            }
+        }
+
+        public string locationAddress
+        {
+            get
+            {
+                return eventDetail.locationaddress;
+            }
+        }
+
+        public DateTime eventTime
+        {
+            get
+            {
+                return eventDetail.eventstart;
+            }
+        }
     }
 
     public class EventDetail : Event

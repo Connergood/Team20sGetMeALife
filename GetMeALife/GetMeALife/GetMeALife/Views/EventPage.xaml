@@ -72,10 +72,9 @@
                                                 Grid.Column="1"
                                                 Grid.Row="0"
                                                 Grid.RowSpan="4"/>
-                                            <Label x:Name="lblName" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand"></Label>
-                                            <Label x:Name="lblTime" Font="Large" HorizontalTextAlignment="End" VerticalTextAlignment="Start" HorizontalOptions="End"></Label>
-                                            <Label x:Name="lblLocation" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="End" HorizontalOptions="StartAndExpand"></Label>
-                                            <Label x:Name="lblPrice" Font="Large" HorizontalTextAlignment="End" VerticalTextAlignment="End" HorizontalOptions="End"></Label>
+                                            <Label x:Name="lblName" Text="{Binding name}" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand"></Label>
+                                            <Label x:Name="lblTime" Text="{Binding eventTime}" Font="Large" HorizontalTextAlignment="End" VerticalTextAlignment="Start" HorizontalOptions="End"></Label>
+                                            <Label x:Name="lblLocation" Text="{Binding locationAddress}" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="End" HorizontalOptions="StartAndExpand"></Label>
                                         </Grid>
                                     </StackLayout>
                                 </ViewCell>
