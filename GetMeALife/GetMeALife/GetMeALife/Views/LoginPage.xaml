@@ -3,50 +3,96 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetMeALife.Views.LoginPage">
     <ContentPage.Content>
-        <StackLayout>
+        <RelativeLayout>
             <Entry 
 				x:Name="etyUsername" 
+                WidthRequest="250"
+                HeightRequest="50"
 				VerticalOptions="Center" 
 				HorizontalOptions="Center" 
 				HorizontalTextAlignment="Center" 
 				Placeholder="Username" 
 				FontSize="Default"
-                MaxLength="20">
-                <Entry.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="Montserrat-SemiBold"/>
-                    </OnPlatform>
-                </Entry.FontFamily>
-            </Entry>
-            <Entry 
+                MaxLength="20"      
+                TextColor="White"
+                PlaceholderColor="White"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Height,Factor=.15,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Height,Factor=.25,Constant=0}">
+                    <Entry.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Montserrat-SemiBold"/>
+                        </OnPlatform>
+                    </Entry.FontFamily>
+                </Entry>
+                <Entry 
 				x:Name="etyPassword" 
+                WidthRequest="250"
+                HeightRequest="50"
 				VerticalOptions="Center" 
 				HorizontalOptions="Center" 
 				HorizontalTextAlignment="Center" 
 				Placeholder="Password" 
 				IsPassword="true" 
 				FontSize="Default"
-                MaxLength="20">
-                <Entry.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="iOS" Value="Montserrat-SemiBold"/>
-                    </OnPlatform>
-                </Entry.FontFamily>
-            </Entry>
-            <Button 
+                MaxLength="20"      
+                TextColor="White"
+                PlaceholderColor="White"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Height,Factor=.15,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Height,Factor=.5,Constant=0}">
+                    <Entry.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Montserrat-SemiBold"/>
+                        </OnPlatform>
+                    </Entry.FontFamily>
+                </Entry>
+                <Button 
 				x:Name="btnLogin" 
 				Text="Get Me A Life" 
-				HorizontalOptions="End" 
+                TextColor="Black"
+                WidthRequest="250"
+                HeightRequest="50"
+				HorizontalOptions="Center" 
 				VerticalOptions="End" 
 				Clicked="OnLoginClicked" 
-				FontSize="Large">
+				FontSize="Large"  
+                BackgroundColor="WhiteSmoke"
+                Opacity=".8"
+                BorderColor="Gray"
+                BorderRadius="30"
+                BorderWidth="2"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Height,Factor=.15,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Height,Factor=.44,Constant=0}">
             </Button>
             <Label
                 x:Name="lblError"
                 Text=""
+                HorizontalTextAlignment="Center"
                 TextColor="OrangeRed"
-				FontSize="Large">
+				FontSize="Large"                
+                WidthRequest="250"
+                HeightRequest="50"
+				HorizontalOptions="Center" 
+				VerticalOptions="End" 
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Height,Factor=.15,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Height,Factor=.52,Constant=0}"
+                >
             </Label>
-        </StackLayout>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

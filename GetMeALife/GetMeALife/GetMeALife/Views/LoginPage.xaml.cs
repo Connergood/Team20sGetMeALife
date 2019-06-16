@@ -15,7 +15,9 @@ namespace GetMeALife.Views
 		public LoginPage ()
 		{
 			InitializeComponent ();
-		}
+
+            BackgroundImage = "background.jpg";
+        }
 
         public void OnLoginClicked(object sender, EventArgs e)
         {
@@ -25,6 +27,7 @@ namespace GetMeALife.Views
             // query for user with that username - if none, create/ if found, check password
             var responseString = App.client.GetStringAsync("http://getmealife.azurewebsites.net/graphql?query={users{firstName,lastName,username,password,phone}}");
             responseString.Wait();
+
 
             User user = null;
             

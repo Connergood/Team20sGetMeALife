@@ -4,61 +4,59 @@
              x:Class="GetMeALife.Controls.NavigationMaster"
              Title="Master">
   <StackLayout>
-        <Grid>
+        <ListView               
+            SeparatorVisibility="None"
+            HasUnevenRows="true"
+            ItemsSource="{Binding MenuItems}">
+            <ListView.Header>
+                <Grid>
             <Button x:Name="btnNewLife"
                     Clicked="OnNewLifeClicked"
                     Grid.Row="0"
+                    Grid.Column="0"
                     Text="New Life"
-                    FontSize="17"
+                    FontSize="20"
                     HorizontalOptions="StartAndExpand">
             </Button>
             <Label x:Name="lblLifeChoices"
                    Grid.Row="1"
+                   Grid.Column="0"
                    Text="Life Choices"
-                   FontSize="17"
+                   FontSize="20"
                    HorizontalOptions="Start">
             </Label>
             <Label x:Name="lblSearchRadius"
                    Grid.Row="2"
-                   Grid.Column="1"
+                   Grid.Column="0"
                    Text="Search Radius"
-                   FontSize="17"
-                   HorizontalOptions="Start">
+                   FontSize="15"
+                   HorizontalTextAlignment="Start">
             </Label>
             <Entry x:Name="etySearchRadius"
                    Grid.Row="2"
-                   Grid.Column="2"
+                   Grid.Column="1"
                    Placeholder="(Miles)"
                    TextChanged="OnRadiusChanged"
-                   FontSize="17"
+                   FontSize="15"
                    HorizontalOptions="Start"
                    MaxLength="3">
-                   <Entry.FontFamily>
-                       <OnPlatform x:TypeArguments="x:String">
-                           <On Platform="Android" Value="Font/Montserrat-SemiBold.ttf#Montserrat-SemiBold" />
-                       </OnPlatform>
-                   </Entry.FontFamily>
             </Entry>
             <Label x:Name="lblCostLimit"
                    Grid.Row="3"
-                   Grid.Column="1"
+                   Grid.Column="0"
                    Text="Cost Limit"
-                   FontSize="17"
-                   HorizontalOptions="Start">
+                   FontSize="15"
+                   HorizontalTextAlignment="Start"
+				   Margin="20,0,0,0">
             </Label>
             <Entry x:Name="etyCostLimit"
                    Grid.Row="3"
-                   Grid.Column="2"
+                   Grid.Column="1"
                    TextChanged="OnPriceChanged"
                    Placeholder="(Dollars)"
-                   FontSize="17"
+                   FontSize="15"
                    HorizontalOptions="Start"
                    MaxLength="3">
-                <Entry.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Font/Montserrat-SemiBold.ttf#Montserrat-SemiBold" />
-                    </OnPlatform>
-                </Entry.FontFamily>
             </Entry>
             <Label x:Name="lblNotify"
                    VerticalOptions="Fill" 
@@ -66,8 +64,9 @@
                    Text="Notify Me" 
                    Grid.Row="4"
                    Grid.Column="0"
+                   HorizontalTextAlignment="Start"
                    FontSize="15"
-				   Margin="0,0,60,0"
+				   Margin="20,0,0,0"
                     />
             <Switch 
                    x:Name="swNotify"
@@ -78,12 +77,15 @@
             <Button x:Name="btnLogOut"
                     Clicked="OnLogOutClicked"
                     Grid.Row="5"
+                    Grid.Column="0"
                     Text="Log Out"
-                    FontSize="17"
+                    FontSize="20"
                     HorizontalOptions="StartAndExpand">
             </Button>
         </Grid>
-    <ListView x:Name="MenuItemsListView"
+            </ListView.Header>
+        </ListView>
+        <!--<ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
@@ -119,6 +121,6 @@
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
-    </ListView>
+    </ListView>-->
   </StackLayout>
 </ContentPage>

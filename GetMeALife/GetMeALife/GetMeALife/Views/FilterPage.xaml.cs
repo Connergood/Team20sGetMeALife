@@ -15,7 +15,9 @@ namespace GetMeALife.Views
 		public FilterPage ()
 		{
 			InitializeComponent ();
-		}
+
+            BackgroundImage = "background.jpg";
+        }
 
         public static void OnAnotherLifeClicked(object sender, EventArgs e)
         {
