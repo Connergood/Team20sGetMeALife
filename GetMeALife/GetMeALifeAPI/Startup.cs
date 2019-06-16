@@ -26,7 +26,7 @@ namespace GetMeALifeAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Add(new ServiceDescriptor(typeof(Database), new Database("server=35.238.128.54;port=3306;database=DATABASELOOKSGOOD;user=team20_user;password=donuts are tasty;")));
+            services.Add(new ServiceDescriptor(typeof(Database), new Database("server=35.238.128.54;port=3306;database=DATABASELOOKSGOOD;user=USER;password=PSSWRD;")));
 
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<AppSchema>();
