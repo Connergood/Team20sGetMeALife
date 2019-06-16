@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GetMeALibrary.Model;
+using GetMeALifeLibrary.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +33,12 @@ namespace GetMeALife.Views
 
         public static void OnGetLifeClicked(object sender, EventArgs e)
         {
-
+            List<int> eventTypeIDs = Api.GetList<EventType>("http://getmealife.azurewebsites.net/graphql", new EventType()).Select(et => et.id).ToList();
+            
+            if (eventTypeIDs != null)
+            {
+                Application.Current.MainPage = new NavigationPage(new EventPage(eventTypeIDs));
+            }
         }
 
         public static void OnSuggestLifeClicked(object sender, EventArgs e)

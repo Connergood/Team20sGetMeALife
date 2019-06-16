@@ -1,4 +1,6 @@
-﻿using GetMeALife.ViewModels;
+﻿using GetMeALibrary.Model;
+using GetMeALife.ViewModels;
+using GetMeALifeLibrary.Api;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,21 +18,42 @@ namespace GetMeALife.Views
     {
         public ListView ListView;
         public ObservableCollection<EventDetailViewModel> eventList = new ObservableCollection<EventDetailViewModel>();
-        public EventPage()
+        List<int> eventTypeIDs = new List<int>();
+        public EventPage(List<int> typeIDs)
         {
             InitializeComponent();
             ListView = lstEvents;
             eventList.CollectionChanged += OnEventListChanged;
+            eventTypeIDs = typeIDs;
         }
 
-        public static void LoadEvents(List<string> types, bool noRestriction = false)
+        public void LoadEvents()
         {
-            // Find Me - No restriction, pull everything
-            if (noRestriction)
-            { return; }
-
             // Grab all events of types
+            var events = Api.GetList<Event>("http://getmealife.azurewebsites.net/graphql", new Event()).Where(e => !eventTypeIDs.Contains(e.eventtypeid));
 
+            if (events != null)
+            {
+                foreach (var e in events)
+                {
+                    var eventModel = new EventDetailViewModel();
+                    eventModel.eventDetail.accessibility = e.accessibility;
+                    eventModel.eventDetail.description = e.description;
+                    eventModel.eventDetail.eventdate = e.eventdate;
+                    eventModel.eventDetail.eventend = e.eventend;
+                    eventModel.eventDetail.eventstart = e.eventstart;
+                    eventModel.eventDetail.eventtypeid = e.eventtypeid;
+                    eventModel.eventDetail.id = e.id;
+                    eventModel.eventDetail.latitude = e.latitude;
+                    eventModel.eventDetail.locationaddress = e.locationaddress;
+                    eventModel.eventDetail.locationname = e.locationname;
+                    eventModel.eventDetail.longitude = e.longitude;
+                    eventModel.eventDetail.name = e.name;
+                    eventModel.eventDetail.participants = e.participants;
+                    eventModel.eventDetail.price = e.price;
+                    eventList.Add(eventModel);
+                }
+            }
         }
 
         protected override void OnBindingContextChanged()
