@@ -22,7 +22,6 @@ namespace GetMeALife.Controls
             InitializeComponent();
 
             BindingContext = new NavigationMasterViewModel();
-            ListView = MenuItemsListView;
         }
 
         class NavigationMasterViewModel : INotifyPropertyChanged
@@ -31,13 +30,6 @@ namespace GetMeALife.Controls
             
             public NavigationMasterViewModel()
             {
-                MenuItems = new ObservableCollection<NavigationMenuItem>(new[]
-                {
-                    new NavigationMenuItem { Id = 0, Title = "New Life" },
-                    new NavigationMenuItem { Id = 1, Title = "Host" },
-                    new NavigationMenuItem { Id = 2, Title = "Life Choices" },
-                    new NavigationMenuItem { Id = 3, Title = "Log Out" }
-                });
             }
             
             #region INotifyPropertyChanged Implementation

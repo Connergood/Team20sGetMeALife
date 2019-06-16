@@ -6,14 +6,14 @@ namespace GetMeALibrary.Model
 {
     public class EventType : DatabaseObject, IEventType
     {
-        public string Name { get; set; }
+        public string name { get; set; }
         public override string GetInsertColumns() { return "NAME"; }
 
-        public override string GetInsertValues() { return $"'{Name}'"; }
+        public override string GetInsertValues() { return $"'{name}'"; }
 
         public override string GetSetValues(int ID)
         {
-            return $"SET Name = '{Name}', " +
+            return $"SET Name = '{name}', " +
              $"WHERE ID = {ID}";
         }
 
@@ -21,8 +21,8 @@ namespace GetMeALibrary.Model
 
         public override void Parse(MySqlDataReader reader)
         {
-            ID = Convert.ToInt32(reader["ID"].ToString());
-            Name = reader["NAME"].ToString();
+            id = Convert.ToInt32(reader["ID"].ToString());
+            name = reader["NAME"].ToString();
         }
     }
 }

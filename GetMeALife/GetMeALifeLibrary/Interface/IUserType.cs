@@ -2,8 +2,8 @@
 {
     public interface IUserType
     {
-        int Eventtypeid { get; set; }
-        int Occurences { get; set; }
-        int Userid { get; set; }
+        int eventtypeid { get; set; }
+        int occurences { get; set; }
+        int userid { get; set; }
     }
 }

@@ -7,8 +7,8 @@ namespace GetMeALifeLibrary.GraphQL.Types.Input
         public UserInputType()
         {
             Name = "userInput";
-            Field<NonNullGraphType<StringGraphType>>("firstName");
-            Field<NonNullGraphType<StringGraphType>>("lastName");
+            Field<NonNullGraphType<StringGraphType>>("firstname");
+            Field<NonNullGraphType<StringGraphType>>("lastname");
             Field<NonNullGraphType<StringGraphType>>("password");
             Field<NonNullGraphType<StringGraphType>>("phone");
             Field<NonNullGraphType<StringGraphType>>("username");

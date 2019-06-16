@@ -6,7 +6,7 @@ namespace GetMeALifeLibrary.GraphQL.Types.Input
     {
         public EventTypeInputType()
         {
-            Name = "eventTypeInput";
+            Name = "eventtypeInput";
             Field<NonNullGraphType<StringGraphType>>("name");
         }
     }

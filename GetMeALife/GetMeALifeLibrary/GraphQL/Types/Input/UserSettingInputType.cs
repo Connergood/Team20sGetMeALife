@@ -9,9 +9,9 @@ namespace GetMeALifeLibrary.GraphQL.Types.Input
     {
         public UserSettingInputType()
         {
-            Name = "userSettingInput";
+            Name = "usersettingInput";
             Field<NonNullGraphType<StringGraphType>>("Name");
-            Field<NonNullGraphType<IntGraphType>>("UserID");
+            Field<NonNullGraphType<IntGraphType>>("Userid");
             Field<NonNullGraphType<StringGraphType>>("Value");
         }
     }

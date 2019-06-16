@@ -70,7 +70,7 @@ namespace GetMeALibrary.Sql
             }
         }
 
-        public T Update<T>(string table, string query) where T : DatabaseObject, new()
+        public T Update<T>(string table, string query, int ID) where T : DatabaseObject, new()
         {
             try
             {
@@ -84,7 +84,7 @@ namespace GetMeALibrary.Sql
                 using (MySqlConnection context = GetConnection())
                 {
                     context.Open();
-                    MySqlCommand getCmd = new MySqlCommand($"SELECT * FROM {table} ORDER BY ID DESC LIMIT 1", context);
+                    MySqlCommand getCmd = new MySqlCommand($"SELECT * FROM {table} WHERE ID = {ID}", context);
 
                     using (var reader = getCmd.ExecuteReader())
                     {

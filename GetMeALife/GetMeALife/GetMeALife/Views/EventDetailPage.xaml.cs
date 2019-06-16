@@ -24,19 +24,19 @@ namespace GetMeALife.Views
             eventDetails = selectedEvent;
             var details = selectedEvent.eventDetail;
 
-            lblName.Text = details.Name;
+            lblName.Text = details.name;
             lblType.Text = details.TypeName;
-            lblTime.Text = details.Eventstart.ToShortTimeString() + " - " + details.Eventend.ToShortTimeString();
-            lblLocation.Text = details.Locationname;
-            lblDescription.Text = details.Decsription;
+            lblTime.Text = details.eventstart.ToShortTimeString() + " - " + details.eventend.ToShortTimeString();
+            lblLocation.Text = details.locationname;
+            lblDescription.Text = details.description;
 
-            if (details.Price == 0)
+            if (details.price == 0)
                 lblPrice.Text = "Free";
-            else if (details.Price == 1)
+            else if (details.price == 1)
                 lblPrice.Text = "$50+";
             else
             {
-                var price = details.Price * 50;
+                var price = details.price * 50;
                 lblPrice.Text = "Around $" + Math.Round(price, 0);
             }
         }

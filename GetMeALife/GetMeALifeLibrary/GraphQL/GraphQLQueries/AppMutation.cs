@@ -14,21 +14,21 @@ namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
         {
             #region CreateMethods
 
-            RegisterCreateMethod<User, UserGetType, UserInputType>(dbo, "createUser", "user");
-            RegisterCreateMethod<UserType, UserTypeGetType, UserTypeInputType>(dbo, "createUserType", "userType");
-            RegisterCreateMethod<UserSetting, UserSettingGetType, UserSettingInputType>(dbo, "createUserSetting", "userSetting");
-            RegisterCreateMethod<Event, EventGetType, EventInputType>(dbo, "createEvent", "event");
-            RegisterCreateMethod<EventType, EventTypeGetType, EventTypeInputType>(dbo, "createEventType", "eventType");
+            RegisterCreateMethod<User, UserGetType, UserInputType>(dbo, "createuser", "user");
+            RegisterCreateMethod<UserType, UserTypeGetType, UserTypeInputType>(dbo, "createusertype", "usertype");
+            RegisterCreateMethod<UserSetting, UserSettingGetType, UserSettingInputType>(dbo, "createusersetting", "usersetting");
+            RegisterCreateMethod<Event, EventGetType, EventInputType>(dbo, "createevent", "event");
+            RegisterCreateMethod<EventType, EventTypeGetType, EventTypeInputType>(dbo, "createeventtype", "eventtype");
 
             #endregion CreateMethods
 
             #region UpdateMethods
 
-            RegisterUpdateMethod<User, UserGetType, UserInputType>(dbo, "updateUser", "user", "userID");
-            RegisterUpdateMethod<UserType, UserTypeGetType, UserTypeInputType>(dbo, "updateUserType", "userType", "userTypeID");
-            RegisterUpdateMethod<UserSetting, UserSettingGetType, UserSettingInputType>(dbo, "updateUserSetting", "userSetting", "userSettingID");
-            RegisterUpdateMethod<Event, EventGetType, EventInputType>(dbo, "updateEvent", "event", "eventID");
-            RegisterUpdateMethod<EventType, EventTypeGetType, EventTypeInputType>(dbo, "updateEventType", "eventType", "eventTypeID");
+            RegisterUpdateMethod<User, UserGetType, UserInputType>(dbo, "updateuser", "user", "userID");
+            RegisterUpdateMethod<UserType, UserTypeGetType, UserTypeInputType>(dbo, "updateusertype", "usertype", "usertypeID");
+            RegisterUpdateMethod<UserSetting, UserSettingGetType, UserSettingInputType>(dbo, "updateusersetting", "usersetting", "usersettingID");
+            RegisterUpdateMethod<Event, EventGetType, EventInputType>(dbo, "updateevent", "event", "eventID");
+            RegisterUpdateMethod<EventType, EventTypeGetType, EventTypeInputType>(dbo, "updateeventtype", "eventtype", "eventtypeID");
             
             #endregion UpdateMethods
         }
@@ -78,13 +78,13 @@ namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
 
                    var dbObject = dbo.Query<T>("SELECT * FROM "+ updatedObject.GetTableName() + " WHERE ID = " + objectID).FirstOrDefault();
 
-                   if (dbObject == null || dbObject.ID < 0)
+                   if (dbObject == null || dbObject.id < 0)
                    {
                        context.Errors.Add(new ExecutionError($"Failed to find {objectName} for ID " + objectID));
                        return null;
                    }
 
-                   return dbo.Update<T>(updatedObject.GetTableName(), updatedObject.GetSetValues(objectID));
+                   return dbo.Update<T>(updatedObject.GetTableName(), updatedObject.GetSetValues(objectID), objectID);
                }
             );
         }

@@ -10,8 +10,8 @@ namespace GetMeALifeLibrary.GraphQL.Types.Get
     {
         public EventTypeGetType(Database dbo)
         {
-            Field(x => x.ID, type: typeof(IdGraphType)).Description("ID of the event type");
-            Field(x => x.Name).Description("Name Identifier of the event");
+            Field(x => x.id, type: typeof(IdGraphType)).Description("ID of the event type");
+            Field(x => x.name).Description("Name Identifier of the event");
         }
     }
 }

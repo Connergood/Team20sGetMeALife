@@ -9,12 +9,12 @@ namespace GetMeALifeLibrary.GraphQL.Types.Input
             Name = "eventInput";
             Field<NonNullGraphType<StringGraphType>>("accessibility");
             Field<NonNullGraphType<StringGraphType>>("decsription");
-            Field<NonNullGraphType<DateTimeGraphType>>("eventDate");
-            Field<NonNullGraphType<DateTimeGraphType>>("eventEnd");
-            Field<NonNullGraphType<DateTimeGraphType>>("eventStart");
-            Field<NonNullGraphType<IntGraphType>>("eventTypeId");
-            Field<NonNullGraphType<StringGraphType>>("locationAddress");
-            Field<NonNullGraphType<StringGraphType>>("locationName");
+            Field<NonNullGraphType<DateTimeGraphType>>("eventdate");
+            Field<NonNullGraphType<DateTimeGraphType>>("eventend");
+            Field<NonNullGraphType<DateTimeGraphType>>("eventstart");
+            Field<NonNullGraphType<IntGraphType>>("eventtypeid");
+            Field<NonNullGraphType<StringGraphType>>("locationaddress");
+            Field<NonNullGraphType<StringGraphType>>("locationname");
             Field<NonNullGraphType<FloatGraphType>>("latitude");
             Field<NonNullGraphType<FloatGraphType>>("longitude");
             Field<NonNullGraphType<StringGraphType>>("name");

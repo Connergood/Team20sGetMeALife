@@ -1,4 +1,5 @@
 ﻿using GetMeALibrary.Model;
+using GetMeALifeLibrary.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,16 +26,12 @@ namespace GetMeALife.Views
             var passWord = etyPassword.Text;
 
             // query for user with that username - if none, create/ if found, check password
-            var responseString = App.client.GetStringAsync("http://getmealife.azurewebsites.net/graphql?query={users{firstName,lastName,username,password,phone}}");
-            responseString.Wait();
-
-
-            User user = null;
+            var user = Api.GetList<User>("http://getmealife.azurewebsites.net/graphql", new User()).Where(u => u.username == userName).FirstOrDefault();
             
             if (user != null)
             {
-                if (user.Password == passWord)
-                    Application.Current.MainPage.Navigation.PushAsync(new FilterPage());
+                if (user.password == passWord)
+                    Application.Current.MainPage = new NavigationPage(new FilterPage());
                 else
                 {
                     lblError.Text = "Password Doesn't Match";

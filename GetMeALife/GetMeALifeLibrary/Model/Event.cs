@@ -9,38 +9,38 @@ namespace GetMeALibrary.Model
     /// </summary>
     public class Event : DatabaseObject, IEvent
     {
-        public double Accessibility { get; set; }
-        public string Decsription { get; set; }
-        public DateTime Eventdate { get; set; }
-        public DateTime Eventend { get; set; }
-        public DateTime Eventstart { get; set; }
-        public int Eventtypeid { get; set; }
-        public double Latitude { get; set; }
-        public string Locationaddress { get; set; }
-        public string Locationname { get; set; }
-        public double Longitude { get; set; }
-        public string Name { get; set; }
-        public int Participants { get; set; }
-        public double Price { get; set; }
+        public double accessibility { get; set; }
+        public string description { get; set; }
+        public DateTime eventdate { get; set; }
+        public DateTime eventend { get; set; }
+        public DateTime eventstart { get; set; }
+        public int eventtypeid { get; set; }
+        public double latitude { get; set; }
+        public string locationaddress { get; set; }
+        public string locationname { get; set; }
+        public double longitude { get; set; }
+        public string name { get; set; }
+        public int participants { get; set; }
+        public double price { get; set; }
 
         public override string GetInsertColumns() { return "ACCESSIBILITY, DESCRIPTION, EVENTDATE, EVENTEND, EVENTSTART, EVENTTYPEID, LATITUDE, LOCATIONADDRESS, LOCATIONNAME, LONGITUDE, NAME, PARTICIPANTS, PRICE"; }
 
-        public override string GetInsertValues() { return $"'{Accessibility}', '{Decsription}', '{Eventdate.ToString("dd/mm/yyyy")}, { Eventend.ToString("dd/mm/yyyy HH:mm")}, { Eventstart.ToString("dd/mm/yyyy HH:mm")}, {Eventtypeid}, {Latitude}, '{Locationaddress}', '{Locationname}', {Longitude}, '{Name}', {Participants}, {Price}"; }
+        public override string GetInsertValues() { return $"'{accessibility}', '{description}', '{eventdate.ToString("dd/mm/yyyy")}, { eventend.ToString("dd/mm/yyyy HH:mm")}, { eventstart.ToString("dd/mm/yyyy HH:mm")}, {eventtypeid}, {latitude}, '{locationaddress}', '{locationname}', {longitude}, '{name}', {participants}, {price}"; }
 
         public override string GetSetValues(int ID)
         {
-            return $"SET ACCESSIBILITY = '{Accessibility}', " +
-             $"DESCRIPTION = '{Decsription}', " +
-             $"EVENTDATE = '{Eventdate.ToString("dd/mm/yyyy")}', " +
-             $"EVENTEND = '{ Eventend.ToString("dd/mm/yyyy HH:mm")}', " +
-             $"EVENTSTART = '{ Eventstart.ToString("dd/mm/yyyy HH:mm")}' " +
-             $"LATITUDE = {Latitude}, " +
-             $"LOCATIONADDRESS = '{Locationaddress}', " +
-             $"LOCATIONNAME = '{Locationname}', " +
-             $"LONGITUDE = {Longitude}, " +
-             $"NAME = '{Name}', " +
-             $"PARTICIPANTS = {Participants}, " +
-             $"PRICE = {Price} " +
+            return $"SET ACCESSIBILITY = '{accessibility}', " +
+             $"DESCRIPTION = '{description}', " +
+             $"EVENTDATE = '{eventdate.ToString("dd/mm/yyyy")}', " +
+             $"EVENTEND = '{ eventend.ToString("dd/mm/yyyy HH:mm")}', " +
+             $"EVENTSTART = '{ eventstart.ToString("dd/mm/yyyy HH:mm")}' " +
+             $"LATITUDE = {latitude}, " +
+             $"LOCATIONADDRESS = '{locationaddress}', " +
+             $"LOCATIONNAME = '{locationname}', " +
+             $"LONGITUDE = {longitude}, " +
+             $"NAME = '{name}', " +
+             $"PARTICIPANTS = {participants}, " +
+             $"PRICE = {price} " +
              $"WHERE ID = {ID}";
         }
 
@@ -48,18 +48,18 @@ namespace GetMeALibrary.Model
 
         public override void Parse(MySqlDataReader reader)
         {
-            ID = Convert.ToInt32(reader["ID"]);
-            Accessibility = Convert.ToDouble(reader["ACCESSIBILITY"].ToString());
-            Decsription = reader["DECSRIPTION"].ToString();
-            Eventdate = Convert.ToDateTime(reader["EVENTDATE"].ToString());
-            Eventend = Convert.ToDateTime(reader["EVENTEND"].ToString());
-            Eventstart = Convert.ToDateTime(reader["EVENTSTART"].ToString());
-            Eventtypeid = Convert.ToInt32(reader["EVENTTYPEID"].ToString());
-            Locationaddress = reader["LOCATIONADDRESS"].ToString();
-            Locationname = reader["LOCATIONNAME"].ToString();
-            Name = reader["NAME"].ToString();
-            Participants = Convert.ToInt32(reader["PARTICIPANTS"].ToString());
-            Price = Convert.ToDouble(reader["Price"].ToString());
+            id = Convert.ToInt32(reader["ID"]);
+            accessibility = Convert.ToDouble(reader["ACCESSIBILITY"].ToString());
+            description = reader["DECSRIPTION"].ToString();
+            eventdate = Convert.ToDateTime(reader["EVENTDATE"].ToString());
+            eventend = Convert.ToDateTime(reader["EVENTEND"].ToString());
+            eventstart = Convert.ToDateTime(reader["EVENTSTART"].ToString());
+            eventtypeid = Convert.ToInt32(reader["EVENTTYPEID"].ToString());
+            locationaddress = reader["LOCATIONADDRESS"].ToString();
+            locationname = reader["LOCATIONNAME"].ToString();
+            name = reader["NAME"].ToString();
+            participants = Convert.ToInt32(reader["PARTICIPANTS"].ToString());
+            price = Convert.ToDouble(reader["Price"].ToString());
         }
     }
 }

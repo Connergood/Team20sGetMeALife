@@ -2,10 +2,10 @@
 {
     public interface IUser
     {
-        string Firstname { get; set; }
-        string Lastname { get; set; }
-        string Password { get; set; }
-        string Phone { get; set; }
-        string Username { get; set; }
+        string firstname { get; set; }
+        string lastname { get; set; }
+        string password { get; set; }
+        string phone { get; set; }
+        string username { get; set; }
     }
 }

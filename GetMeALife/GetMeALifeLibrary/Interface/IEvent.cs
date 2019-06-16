@@ -4,18 +4,18 @@ namespace GetMeALibrary.Interface
 {
     public interface IEvent
     {
-        double Accessibility { get; set; }
-        string Decsription { get; set; }
-        DateTime Eventdate { get; set; }
-        DateTime Eventend { get; set; }
-        DateTime Eventstart { get; set; }
-        int Eventtypeid { get; set; }
-        double Latitude { get; set; }
-        string Locationaddress { get; set; }
-        string Locationname { get; set; }
-        double Longitude { get; set; }
-        string Name { get; set; }
-        int Participants { get; set; }
-        double Price { get; set; }
+        double accessibility { get; set; }
+        string description { get; set; }
+        DateTime eventdate { get; set; }
+        DateTime eventend { get; set; }
+        DateTime eventstart { get; set; }
+        int eventtypeid { get; set; }
+        double latitude { get; set; }
+        string locationaddress { get; set; }
+        string locationname { get; set; }
+        double longitude { get; set; }
+        string name { get; set; }
+        int participants { get; set; }
+        double price { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public interface IUserSetting
     {
-        int Userid { get; set; }
-        string Value { get; set; }
+        int userid { get; set; }
+        string value { get; set; }
     }
 }

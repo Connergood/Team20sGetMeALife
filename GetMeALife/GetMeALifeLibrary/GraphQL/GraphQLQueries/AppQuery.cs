@@ -11,15 +11,15 @@ namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
         public AppQuery(Database dbo)
         {
             RegisterGetManyMethod<User, UserGetType>(dbo, "users");
-            RegisterGetManyMethod<UserSetting, UserSettingGetType>(dbo, "userSettings");
-            RegisterGetManyMethod<UserType, UserTypeGetType>(dbo, "userTypes");
+            RegisterGetManyMethod<UserSetting, UserSettingGetType>(dbo, "usersettings");
+            RegisterGetManyMethod<UserType, UserTypeGetType>(dbo, "usertypes");
             RegisterGetManyMethod<Event, EventGetType>(dbo, "events");
-            RegisterGetManyMethod<EventType, EventTypeGetType>(dbo, "eventTypes");
+            RegisterGetManyMethod<EventType, EventTypeGetType>(dbo, "eventtypes");
             RegisterGetSingleMethod<User, UserGetType>(dbo, "user", "userID");
-            RegisterGetSingleMethod<UserSetting, UserSettingGetType>(dbo, "userSetting", "userSettingID");
-            RegisterGetSingleMethod<UserType, UserTypeGetType>(dbo, "userType", "userTypeID");
+            RegisterGetSingleMethod<UserSetting, UserSettingGetType>(dbo, "usersetting", "usersettingID");
+            RegisterGetSingleMethod<UserType, UserTypeGetType>(dbo, "usertype", "usertypeID");
             RegisterGetSingleMethod<Event, EventGetType>(dbo, "event", "eventID");
-            RegisterGetSingleMethod<EventType, EventTypeGetType>(dbo, "eventType", "eventTypeID");
+            RegisterGetSingleMethod<EventType, EventTypeGetType>(dbo, "eventtype", "eventtypeID");
         }
 
         private void RegisterGetManyMethod<T, U>(Database dbo, string methodName) where T : DatabaseObject, new()
