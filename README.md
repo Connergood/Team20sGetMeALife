@@ -3,7 +3,7 @@
 Hello and welcome to our App. We hope you enjoy your new life!
 
 HOW TO INSTALL/RUN:
-There will be two .apk files uploaded to the github in the APKs folder, one signed and one unsigned. Both should work on an Android Device of version 8.0 (API Level 26) and up, but if one doesn't the other will.  Download it to your phone, and "run" it from the downloads to install it to your phone, you may be prompted that the APK is unsafe and Google Play doesn't recognize this, simply press install anyway and we promise that it's not malicious ;).
+There will be an .apk files uploaded to the github in the APKs folder. The APK will work on an Android Device of version 8.0 (API Level 26) and up, if for any reason a lower version is required feel free to contact me via Slack. Download the APK your Android Device, and "run" it from the downloads to install it to your phone, you may be prompted that the APK is unsafe and that Google Play doesn't recognize the developer, simply press install anyway and we promise that it's not malicious ;).
 
 LOGGING IN:
 After you install and open the Get Me A Life, you will be prompted with a Login screen. Feel free to enter any username and password and you will be given access to the app. Couple notes! 1. Don't give a real password, the passwords are currently stored literally as we did not get time to polish off an encryption. 2. You can login using the same username/password to access the same user account, doing so will build your preferences over time. 3. Logging in with fresh credentials will give you a new user/tutorial experience until you have tracked your first event or you close/reopen the app.
