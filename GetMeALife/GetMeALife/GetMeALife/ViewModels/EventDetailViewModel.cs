@@ -12,8 +12,6 @@ namespace GetMeALife.ViewModels
 
         public bool isConfirmed { get; set; }
 
-        public EventListViewModel eventList { get; set; }
-
         public string name
         {
             get

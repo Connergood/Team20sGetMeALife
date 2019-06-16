@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,7 +21,7 @@ namespace GetMeALife.Views
         {
             InitializeComponent();
             ListView = lstEvents;
-            ListView.ItemTapped += OnEventClicked;
+            lstEvents.ItemTapped += OnEventClicked;
             eventList.CollectionChanged += OnEventListChanged;
             eventTypeIDs = typeIDs;
             LoadEvents();
@@ -32,7 +30,7 @@ namespace GetMeALife.Views
         public void LoadEvents()
         {
             // Grab all events of types
-            var events = Api.GetList<Event>("http://getmealife.azurewebsites.net/graphql", new Event()).Where(e => !eventTypeIDs.Contains(e.eventtypeid));
+            var events = Api.GetList<Event>("http://getmealife.azurewebsites.net/graphql", new Event()).Where(e => eventTypeIDs.Contains(e.eventtypeid));
 
             if (events != null)
             {
@@ -63,7 +61,7 @@ namespace GetMeALife.Views
                     if (i == eventModels.Count - 1)
                         ignore_OnEventListChanged = false;
                     eventList.Add(eventModels[i]);
-                } 
+                }
             }
         }
 
@@ -75,7 +73,7 @@ namespace GetMeALife.Views
             //eventList = (ObservableCollection<EventDetailViewModel>)BindingContext;
         }
 
-        public static void OnEventClicked(object sender, ItemTappedEventArgs e)
+        public void OnEventClicked(object sender, ItemTappedEventArgs e)
         {
             try
             {
@@ -86,19 +84,33 @@ namespace GetMeALife.Views
 
                 var selectedEvent = (EventDetailViewModel)listView.SelectedItem;
 
-                Application.Current.MainPage.Navigation.PushAsync(new EventDetailPage(selectedEvent));
+                Application.Current.MainPage = new NavigationPage(new EventDetailPage(selectedEvent, eventTypeIDs));
             }
             catch (Exception ex)
             {
+                return;
             }
         }
 
         private bool ignore_OnEventListChanged = false;
         public void OnEventListChanged(object sender, EventArgs e)
         {
-            if (ignore_OnEventListChanged) return;   
+            if (ignore_OnEventListChanged) return;
             lstEvents.ItemsSource = eventList;
             OnBindingContextChanged();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            try
+            {
+                Application.Current.MainPage = new NavigationPage(new FilterPage());
+                return true;
+            }
+            catch
+            {
+                return base.OnBackButtonPressed();
+            }
         }
     }
 }

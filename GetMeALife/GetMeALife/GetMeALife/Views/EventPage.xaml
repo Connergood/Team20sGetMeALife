@@ -27,8 +27,7 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout Padding="5,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
-                                        <Grid 
-                                            BackgroundColor="White" ColumnSpacing="0">
+                                        <Grid BackgroundColor="White" ColumnSpacing="0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="10" />
                                                 <ColumnDefinition Width="10" />
@@ -72,9 +71,16 @@
                                                 Grid.Column="1"
                                                 Grid.Row="0"
                                                 Grid.RowSpan="4"/>
-                                            <Label x:Name="lblName" Text="{Binding name}" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="Black"></Label>
-                                            <Label x:Name="lblTime" Text="{Binding eventTime}" Font="Large" HorizontalTextAlignment="End" VerticalTextAlignment="Start" HorizontalOptions="End" TextColor="Black"></Label>
-                                            <Label x:Name="lblLocation" Text="{Binding locationAddress}" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="End" HorizontalOptions="StartAndExpand" TextColor="Black"></Label>
+                                            <Label x:Name="lblName" Text="{Binding name}" Grid.Column="2"
+                                            Grid.ColumnSpan="2"
+                                            Grid.Row="0"
+                                            Grid.RowSpan="4" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="Black"></Label>
+                                            <Label x:Name="lblTime" Text="{Binding eventTime}"
+                                                 Grid.Column="3"
+										    Grid.Row="0" Font="Large" HorizontalTextAlignment="End" VerticalTextAlignment="Start" HorizontalOptions="End" TextColor="Black"></Label>
+                                            <Label x:Name="lblLocation" Text="{Binding locationAddress}" Grid.Column="2"
+                                            Grid.Row="2" 
+                                            Grid.ColumnSpan="2" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="End" HorizontalOptions="StartAndExpand" TextColor="Black"></Label>
                                         </Grid>
                                     </StackLayout>
                                 </ViewCell>

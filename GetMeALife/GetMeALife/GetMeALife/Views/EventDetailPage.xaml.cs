@@ -14,14 +14,16 @@ namespace GetMeALife.Views
 	public partial class EventDetailPage : ContentPage
 	{
         private EventDetailViewModel eventDetails { get; set; }
+        private List<int> previouslySeenTypesOnEventPage { get; set; }
 		public EventDetailPage ()
 		{
 			InitializeComponent ();
 		}
 
-        public EventDetailPage(EventDetailViewModel selectedEvent) : this()
+        public EventDetailPage(EventDetailViewModel selectedEvent, List<int> previousSeenTypes) : this()
         {
             eventDetails = selectedEvent;
+            previouslySeenTypesOnEventPage = previousSeenTypes;
             var details = selectedEvent.eventDetail;
 
             lblName.Text = details.name;
@@ -48,5 +50,18 @@ namespace GetMeALife.Views
             // Flag this event as confirmed
             eventDetails.isConfirmed = true;
         }
-	}
+
+        protected override bool OnBackButtonPressed()
+        {
+            try
+            {
+                Application.Current.MainPage = new NavigationPage(new EventPage(previouslySeenTypesOnEventPage));
+                return true;
+            }
+            catch
+            {
+                return base.OnBackButtonPressed();
+            }
+        }
+    }
 }

@@ -45,5 +45,18 @@ namespace GetMeALife.Views
         {
 
         }
-	}
+
+        protected override bool OnBackButtonPressed()
+        {
+            try
+            {
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+                return true;
+            }
+            catch
+            {
+                return base.OnBackButtonPressed();
+            }
+        }
+    }
 }
