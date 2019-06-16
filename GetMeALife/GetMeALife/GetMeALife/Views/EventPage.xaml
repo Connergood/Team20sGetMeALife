@@ -19,7 +19,7 @@
                         x:Name="lstEvents"
                         SeparatorVisibility="None"
                         HasUnevenRows="true"
-                        ItemsSource="{Binding eventList}">
+                        ItemsSource="{Binding}">
                         <ListView.Header>
                             <Label HeightRequest="0"/>
                         </ListView.Header>
@@ -72,9 +72,9 @@
                                                 Grid.Column="1"
                                                 Grid.Row="0"
                                                 Grid.RowSpan="4"/>
-                                            <Label x:Name="lblName" Text="{Binding name}" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand"></Label>
-                                            <Label x:Name="lblTime" Text="{Binding eventTime}" Font="Large" HorizontalTextAlignment="End" VerticalTextAlignment="Start" HorizontalOptions="End"></Label>
-                                            <Label x:Name="lblLocation" Text="{Binding locationAddress}" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="End" HorizontalOptions="StartAndExpand"></Label>
+                                            <Label x:Name="lblName" Text="{Binding name}" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="Black"></Label>
+                                            <Label x:Name="lblTime" Text="{Binding eventTime}" Font="Large" HorizontalTextAlignment="End" VerticalTextAlignment="Start" HorizontalOptions="End" TextColor="Black"></Label>
+                                            <Label x:Name="lblLocation" Text="{Binding locationAddress}" Font="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="End" HorizontalOptions="StartAndExpand" TextColor="Black"></Label>
                                         </Grid>
                                     </StackLayout>
                                 </ViewCell>

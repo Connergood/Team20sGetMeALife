@@ -3,6 +3,8 @@ using GraphQL.Types;
 using GetMeALibrary.Model;
 using GetMeALifeLibrary.GraphQL.Types.Get;
 using System.Linq;
+using System.Collections.Generic;
+using GetMeALifeLibrary.BoredApi;
 
 namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
 {
@@ -27,7 +29,18 @@ namespace GetMeALifeLibrary.GraphQL.GraphQLQueries
         {
             Field<ListGraphType<U>>(
                 methodName,
-                resolve: (ResolveFieldContext<object> context) => dbo.Query<T>($"SELECT * FROM {new T().GetTableName()}")
+                resolve: (ResolveFieldContext<object> context) => 
+                {
+                    List<T> objects = dbo.Query<T>($"SELECT * FROM {new T().GetTableName()}");
+                    if(objects is List<Event>)
+                    {
+                        foreach (var type in Activity.AllActivityTypes)
+                            objects.Add(BoredApi.Api.GetActivityByType(type).ToEvent() as T);
+                        // as T does nothing since we know it's an Event, it's just to hide compiler warning
+                        objects.Add(BoredApi.Api.GetRandomActivity().ToEvent() as T);
+                    }
+                    return objects;
+                }
             );
         }
         private void RegisterGetSingleMethod<T, U>(Database dbo, string methodName, string IDName) where T : DatabaseObject, new()

@@ -23,6 +23,7 @@ namespace GetMeALife.Views
         {
             InitializeComponent();
             ListView = lstEvents;
+            ListView.ItemTapped += OnEventClicked;
             eventList.CollectionChanged += OnEventListChanged;
             eventTypeIDs = typeIDs;
             LoadEvents();
@@ -35,6 +36,7 @@ namespace GetMeALife.Views
 
             if (events != null)
             {
+                List<EventDetailViewModel> eventModels = new List<EventDetailViewModel>();
                 foreach (var e in events)
                 {
                     var eventModel = new EventDetailViewModel();
@@ -53,8 +55,15 @@ namespace GetMeALife.Views
                     eventModel.eventDetail.name = e.name;
                     eventModel.eventDetail.participants = e.participants;
                     eventModel.eventDetail.price = e.price;
-                    eventList.Add(eventModel);
+                    eventModels.Add(eventModel);
                 }
+                ignore_OnEventListChanged = true;
+                for (int i = 0; i < eventModels.Count; i++)
+                {
+                    if (i == eventModels.Count - 1)
+                        ignore_OnEventListChanged = false;
+                    eventList.Add(eventModels[i]);
+                } 
             }
         }
 
@@ -84,8 +93,11 @@ namespace GetMeALife.Views
             }
         }
 
+        private bool ignore_OnEventListChanged = false;
         public void OnEventListChanged(object sender, EventArgs e)
         {
+            if (ignore_OnEventListChanged) return;   
+            lstEvents.ItemsSource = eventList;
             OnBindingContextChanged();
         }
     }

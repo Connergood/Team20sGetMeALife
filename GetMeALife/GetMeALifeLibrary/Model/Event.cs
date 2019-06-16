@@ -61,5 +61,10 @@ namespace GetMeALibrary.Model
             participants = Convert.ToInt32(reader["PARTICIPANTS"].ToString());
             price = Convert.ToDouble(reader["Price"].ToString());
         }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }
