@@ -19,8 +19,4 @@ There were plans for a decision tree based option, where users would select vari
 and events would be filtered out until there was a curated list. However, we were unable to implement that at this time.
 
 WHAT DID WE USE
--All of our code is in C#! 
--Our Android App is built using Xamarin Forms which builds off of .Net Standard 2.0
--Our Api is built in ASP.NET Core 2.2
--Our Class library where we store all of our models,interfaces, and access to data sources is a .Net Standard 2.0 Class Library
--As for Graph QL we used the Graph QL .Nuget Package to help parse and filter GraphQL queries. 
+All of our code is in C#! Our Android App is built using Xamarin Forms which builds off of .Net Standard 2.0. Our Api is built in ASP.NET Core 2.2 and is hosted on an Azure App Service found here http://getmealife.azurewebsites.net/. If you'd like you can go to http://getmealife.azurewebsites.net/ui/playground to send GraphQL to our API directly. The playground also contains the Schema and documentation for our models. Our Class library where we store all of our models,interfaces, and access to data sources is a .Net Standard 2.0 Class Library. As for Graph QL we used the Graph QL .Nuget Package to help parse and filter GraphQL queries. 
