@@ -29,12 +29,22 @@ namespace GetMeALifeTest
             const string graphUrl = "https://localhost:44376/graphql";
             //const string graphUrl = "http://getmealife.azurewebsites.net/graphql";
 
-
-            var events = Api.GetList<Event>(graphUrl, new Event());
-            foreach (var evnt in events)
+            var userType = new UserType()
             {
-                Console.WriteLine(evnt.ToString());
-            }
+                id = 1,
+                userid = 1,
+                eventtypeid = 1,
+                occurrences = 3
+            };
+            userType = Api.Update(graphUrl, userType, userType.id);
+            Console.WriteLine("yay");
+
+
+            //var events = Api.GetList<Event>(graphUrl, new Event());
+            //foreach (var evnt in events)
+            //{
+            //    Console.WriteLine(evnt.ToString());
+            //}
 
             //var users = Api.GetList<User>(graphUrl, new User());
 

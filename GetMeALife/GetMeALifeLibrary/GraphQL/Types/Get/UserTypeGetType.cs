@@ -12,7 +12,7 @@ namespace GetMeALifeLibrary.GraphQL.Types.Get
         {
             Field(x => x.id, type: typeof(IdGraphType)).Description("ID of the user");
             Field(x => x.eventtypeid).Description("ID of the EventType this user attended.");
-            Field(x => x.occurences).Description("# of times this user atteneded this event");
+            Field(x => x.occurrences).Description("# of times this user atteneded this event");
             Field(x => x.userid).Description("UserID of this UserType");
         }
     }

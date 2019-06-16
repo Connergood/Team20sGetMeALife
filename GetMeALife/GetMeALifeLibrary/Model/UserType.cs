@@ -8,17 +8,17 @@ namespace GetMeALibrary.Model
     {
         public int userid { get; set; }
         public int eventtypeid { get; set; }
-        public int occurences { get; set; }
+        public int occurrences { get; set; }
 
-        public override string GetInsertColumns() { return "USERID, EVENTTYPEID, OCCURENCES"; }
+        public override string GetInsertColumns() { return "USERID, EVENTTYPEID, OCCURRENCES"; }
 
-        public override string GetInsertValues() { return $"{userid}, {eventtypeid}, {occurences}"; }
+        public override string GetInsertValues() { return $"{userid}, {eventtypeid}, {occurrences}"; }
 
         public override string GetSetValues(int ID)
         {
             return $"SET USERID = {userid}, " +
-             $"EVENTTYPEID = '{eventtypeid}', " +
-             $"OCCURENCES = '{occurences}', " +
+             $"EVENTTYPEID = {eventtypeid}, " +
+             $"OCCURRENCES = {occurrences} " +
              $"WHERE ID = {ID}";
         }
 
@@ -29,7 +29,7 @@ namespace GetMeALibrary.Model
             id = Convert.ToInt32(reader["ID"].ToString());
             userid = Convert.ToInt32(reader["USERID"].ToString());
             eventtypeid = Convert.ToInt32(reader["EVENTTYPEID"].ToString());
-            occurences = Convert.ToInt32(reader["OCCURENCES"].ToString());
+            occurrences = Convert.ToInt32(reader["OCCURRENCES"].ToString());
         }
     }
 }

@@ -20,7 +20,7 @@ namespace GetMeALife.Views
             BackgroundImage = "background.jpg";
         }
 
-        public void OnLoginClicked(object sender, EventArgs e)
+        public async void OnLoginClicked(object sender, EventArgs e)
         {
             var userName = etyUsername.Text;
             var passWord = etyPassword.Text;
@@ -31,7 +31,10 @@ namespace GetMeALife.Views
             if (user != null)
             {
                 if (user.password == passWord)
+                {
                     Application.Current.MainPage = new NavigationPage(new FilterPage());
+                    App.CurrentUser = user;
+                }
                 else
                 {
                     lblError.Text = "Password Doesn't Match";
@@ -39,7 +42,25 @@ namespace GetMeALife.Views
             }
             else
             {
-                User newUser = new User();
+                user = new User()
+                {
+                    username = etyUsername.Text,
+                    password = etyPassword.Text,
+                    firstname = "New",
+                    lastname = "User",
+                    phone = "555-555-5555"
+                };
+                user = Api.Create<User>(App.ApiUrl, user);
+                if (user != null && user.id > 0)
+                {
+                    await DisplayAlert("Welcome!", "Welcome New User! We are excited for you to join many others in living their lives together!", "OK!");
+                    App.CurrentUser = user;
+                    App.FirstTime = true;
+                }
+                else
+                {
+                    lblError.Text = "Failed to connect, Please try again...";
+                }
             }
         }
 	}

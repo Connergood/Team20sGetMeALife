@@ -9,7 +9,7 @@
                     <ColumnDefinition Width="100*"/>
                 </Grid.ColumnDefinitions>
                 <Label
-                Text=""
+                Text="It appears we couldn't find any events for you. Please try another life option."
                 IsVisible="False"
                 x:Name="lblEmptyEventList"/>
             </Grid>

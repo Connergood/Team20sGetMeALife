@@ -18,7 +18,7 @@ namespace GetMeALibrary.Model
         {
             return $"SET NAME = '{Name}', " +
              $"USERID = {userid}, " +
-             $"VALUE = '{value}', " +
+             $"VALUE = '{value}' " +
              $"WHERE ID = {ID}";
         }
 

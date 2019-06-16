@@ -1,4 +1,6 @@
-﻿using GetMeALife.ViewModels;
+﻿using GetMeALibrary.Model;
+using GetMeALife.ViewModels;
+using GetMeALifeLibrary.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,7 @@ namespace GetMeALife.Views
 	{
         private EventDetailViewModel eventDetails { get; set; }
         private List<int> previouslySeenTypesOnEventPage { get; set; }
+        private UserType userType { get; set; }
 		public EventDetailPage ()
 		{
 			InitializeComponent ();
@@ -24,6 +27,11 @@ namespace GetMeALife.Views
         {
             eventDetails = selectedEvent;
             previouslySeenTypesOnEventPage = previousSeenTypes;
+
+            //Check to see if user already has a track record.
+            userType = Api.GetList(App.ApiUrl, new UserType()).Where(ut => ut.eventtypeid == eventDetails.eventDetail.eventtypeid &&
+                                                                                     ut.userid == App.CurrentUser.id).FirstOrDefault();
+
             var details = selectedEvent.eventDetail;
 
             lblName.Text = details.name;
@@ -43,12 +51,33 @@ namespace GetMeALife.Views
             }
         }
 
-        public void OnConfirmClicked(object sender, EventArgs e)
+        public async void OnConfirmClicked(object sender, EventArgs e)
         {
-            // Ping the DB to increment this type
+            // Ping the DB to increment this type or start tracking it
+            if (userType == null)
+            {
+                userType = new UserType()
+                {
+                    userid = App.CurrentUser.id,
+                    eventtypeid = eventDetails.eventDetail.eventtypeid,
+                    occurrences = 1
+                };
+                userType = Api.Create(App.ApiUrl, userType);
+            }
+            else
+            {
+                userType.occurrences++;
+                userType = Api.Update(App.ApiUrl, userType, userType.id);
+            }
 
             // Flag this event as confirmed
             eventDetails.isConfirmed = true;
+            if (App.FirstTime)
+            {
+                await DisplayAlert("You're in!", $"Congrats {App.CurrentUser.username}! We are glad to see you taking matters into your own hands! We look forward in seeing all the events you attend.", "Thanks!");
+                App.FirstTime = false;
+            }
+            else await DisplayAlert("You're in!", $"See you at {eventDetails.eventDetail.name}", "Can't Wait!");
         }
 
         protected override bool OnBackButtonPressed()

@@ -13,7 +13,7 @@ namespace GetMeALibrary.Model
 
         public override string GetSetValues(int ID)
         {
-            return $"SET Name = '{name}', " +
+            return $"SET Name = '{name}' " +
              $"WHERE ID = {ID}";
         }
 

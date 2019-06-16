@@ -17,10 +17,12 @@ namespace GetMeALife.Views
         public ListView ListView;
         public ObservableCollection<EventDetailViewModel> eventList = new ObservableCollection<EventDetailViewModel>();
         List<int> eventTypeIDs = new List<int>();
-        public EventPage(List<int> typeIDs)
+        private static bool excludeTypes = false;
+        public EventPage(List<int> typeIDs, bool exceptTypes = false)
         {
             InitializeComponent();
             ListView = lstEvents;
+            excludeTypes = exceptTypes;
             lstEvents.ItemTapped += OnEventClicked;
             eventList.CollectionChanged += OnEventListChanged;
             eventTypeIDs = typeIDs;
@@ -30,7 +32,10 @@ namespace GetMeALife.Views
         public void LoadEvents()
         {
             // Grab all events of types
-            var events = Api.GetList<Event>("http://getmealife.azurewebsites.net/graphql", new Event()).Where(e => eventTypeIDs.Contains(e.eventtypeid));
+            List<Event> events = new List<Event>();
+            if(excludeTypes)
+                events = Api.GetList<Event>(App.ApiUrl, new Event()).Where(e => !eventTypeIDs.Contains(e.eventtypeid)).ToList();
+            else events = Api.GetList<Event>(App.ApiUrl, new Event()).Where(e => eventTypeIDs.Contains(e.eventtypeid)).ToList();
 
             if (events != null)
             {

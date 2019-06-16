@@ -14,6 +14,11 @@ namespace GetMeALibrary.Model
             var query = $"?query={{{this.GetTableName().ToLower()}({this.GetTableName().ToLower()}ID: {identifier}) {{ id, {this.GetInsertColumns().ToLower()} }}}}";
             return query;
         }
+        public string GetGraphSingleQuery(string whereClause)
+        {
+            var query = $"?query={{{this.GetTableName().ToLower()}({whereClause}) {{ id, {this.GetInsertColumns().ToLower()} }}}}";
+            return query;
+        }
         public string GetGraphManyQuery()
         {
             var query = $"?query={{{this.GetTableName().ToLower()}s{{ id, {this.GetInsertColumns().ToLower()} }}}}";

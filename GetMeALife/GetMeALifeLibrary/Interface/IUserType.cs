@@ -3,7 +3,7 @@
     public interface IUserType
     {
         int eventtypeid { get; set; }
-        int occurences { get; set; }
+        int occurrences { get; set; }
         int userid { get; set; }
     }
 }

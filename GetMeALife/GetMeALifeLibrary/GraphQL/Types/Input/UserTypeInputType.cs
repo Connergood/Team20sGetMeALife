@@ -9,7 +9,7 @@ namespace GetMeALifeLibrary.GraphQL.Types.Input
             Name = "usertypeInput";
             Field<NonNullGraphType<IntGraphType>>("userid");
             Field<NonNullGraphType<IntGraphType>>("eventtypeid");
-            Field<NonNullGraphType<IntGraphType>>("occurences");
+            Field<NonNullGraphType<IntGraphType>>("occurrences");
         }
     }
 }
