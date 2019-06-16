@@ -1,4 +1,5 @@
 ﻿using GetMeALibrary.Model;
+using GetMeALifeLibrary.Api;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,8 +21,7 @@ namespace GetMeALife.ViewModels
         {
             get
             {
-                //query for typename
-                return null;
+                return Api.Get<EventType>("http://getmealife.azurewebsites.net/graphql", new EventType(), this.eventtypeid).name;
             }
         }
     }
