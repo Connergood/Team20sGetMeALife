@@ -6,18 +6,18 @@ namespace GetMeALibrary.Model
 {
     public class UserType : DatabaseObject, IUserType
     {
-        public int UserID { get; set; }
-        public int EventTypeID { get; set; }
+        public int Userid { get; set; }
+        public int Eventtypeid { get; set; }
         public int Occurences { get; set; }
 
         public override string GetInsertColumns() { return "USERID, EVENTTYPEID, OCCURENCES"; }
 
-        public override string GetInsertValues() { return $"{UserID}, {EventTypeID}, {Occurences}"; }
+        public override string GetInsertValues() { return $"{Userid}, {Eventtypeid}, {Occurences}"; }
 
         public override string GetSetValues(int ID)
         {
-            return $"SET USERID = {UserID}, " +
-             $"EVENTTYPEID = '{EventTypeID}', " +
+            return $"SET USERID = {Userid}, " +
+             $"EVENTTYPEID = '{Eventtypeid}', " +
              $"OCCURENCES = '{Occurences}', " +
              $"WHERE ID = {ID}";
         }
@@ -27,8 +27,8 @@ namespace GetMeALibrary.Model
         public override void Parse(MySqlDataReader reader)
         {
             ID = Convert.ToInt32(reader["ID"].ToString());
-            UserID = Convert.ToInt32(reader["USERID"].ToString());
-            EventTypeID = Convert.ToInt32(reader["EVENTTYPEID"].ToString());
+            Userid = Convert.ToInt32(reader["USERID"].ToString());
+            Eventtypeid = Convert.ToInt32(reader["EVENTTYPEID"].ToString());
             Occurences = Convert.ToInt32(reader["OCCURENCES"].ToString());
         }
     }

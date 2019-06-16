@@ -13,8 +13,8 @@ namespace GetMeALifeLibrary.GraphQL.Types.Get
         public UserGetType(Database dbo)
         {
             Field(x => x.ID, type: typeof(IdGraphType)).Description("ID of the user");
-            Field(x => x.FirstName).Description("First name of the user");
-            Field(x => x.LastName).Description("Last name of the user");
+            Field(x => x.Firstname).Description("First name of the user");
+            Field(x => x.Lastname).Description("Last name of the user");
             Field(x => x.Password).Description("Password of the user");
             Field(x => x.Phone).Description("Phone of the user");
             Field(x => x.Username).Description("Username of the user");
