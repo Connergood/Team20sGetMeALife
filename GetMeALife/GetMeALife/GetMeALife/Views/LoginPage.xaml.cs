@@ -56,6 +56,7 @@ namespace GetMeALife.Views
                     await DisplayAlert("Welcome!", "Welcome New User! We are excited for you to join many others in living their lives together!", "OK!");
                     App.CurrentUser = user;
                     App.FirstTime = true;
+                    Application.Current.MainPage = new NavigationPage(new FilterPage());
                 }
                 else
                 {

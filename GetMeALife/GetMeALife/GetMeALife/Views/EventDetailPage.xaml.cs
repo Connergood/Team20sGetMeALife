@@ -78,6 +78,8 @@ namespace GetMeALife.Views
                 App.FirstTime = false;
             }
             else await DisplayAlert("You're in!", $"See you at {eventDetails.eventDetail.name}", "Can't Wait!");
+
+            Application.Current.MainPage = new NavigationPage(new EventPage(previouslySeenTypesOnEventPage));
         }
 
         protected override bool OnBackButtonPressed()
