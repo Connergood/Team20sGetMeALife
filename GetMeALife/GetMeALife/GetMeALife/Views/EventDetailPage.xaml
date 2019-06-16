@@ -63,7 +63,7 @@
                    HorizontalOptions="End"
                    Margin="0,0,30,0"  
                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                   Property=Height,Factor=.30,Constant=0}"
+                   Property=Height,Factor=.25,Constant=0}"
                    RelativeLayout.WidthConstraint="{ConstraintExpression
                    Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
                    RelativeLayout.HeightConstraint="{ConstraintExpression
